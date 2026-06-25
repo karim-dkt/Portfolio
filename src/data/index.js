@@ -87,6 +87,7 @@ export const education = [
     degree: 'Licence 3 — Génie Informatique',
     school: 'Faculté des Sciences et Techniques — Fès',
     period: '2025 – 2026',
+    badge: 'Diplômé',
     description:
       "Approfondissement des fondamentaux de l'informatique : systèmes, réseaux, développement logiciel et algorithmique avancée.",
   },

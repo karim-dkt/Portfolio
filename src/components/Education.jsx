@@ -2,7 +2,7 @@ import { useInView } from '../hooks/useInView'
 import SectionTitle from './SectionTitle'
 import { education } from '../data'
 
-function TimelineItem({ degree, school, period, description, index, isLast }) {
+function TimelineItem({ degree, school, period, badge, description, index, isLast }) {
   const [ref, inView] = useInView()
 
   return (
@@ -21,7 +21,14 @@ function TimelineItem({ degree, school, period, description, index, isLast }) {
       {/* Card */}
       <div className="ml-4 bg-card border border-slate-700/40 rounded-xl p-5 hover:border-primary/20 transition-colors">
         <div className="flex flex-wrap items-start justify-between gap-2 mb-1.5">
-          <h3 className="font-semibold text-white text-sm leading-snug">{degree}</h3>
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="font-semibold text-white text-sm leading-snug">{degree}</h3>
+            {badge && (
+              <span className="text-xs font-medium text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 rounded-full">
+                {badge}
+              </span>
+            )}
+          </div>
           <span className="text-xs font-mono text-primary bg-primary/10 px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0">
             {period}
           </span>
