@@ -1,4 +1,4 @@
-import { ChevronDown, Download, ArrowRight } from 'lucide-react'
+import { ChevronDown, Download, ArrowRight, Eye } from 'lucide-react'
 import { useTyping } from '../hooks/useTyping'
 import { useInView } from '../hooks/useInView'
 import { useCounter } from '../hooks/useCounter'
@@ -87,10 +87,18 @@ export default function Hero() {
               </a>
               <a
                 href="/KARIM_DIAKITÉ.pdf"
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-primary/50 text-primary font-semibold rounded-lg hover:bg-primary/10 transition-colors"
               >
-                <Download size={18} /> Télécharger le CV
+                <Eye size={18} /> Visualiser le CV
+              </a>
+              <a
+                href="/KARIM_DIAKITÉ.pdf"
+                download
+                className="inline-flex items-center gap-2 px-4 py-3 border border-slate-700/60 text-slate-400 font-semibold rounded-lg hover:bg-slate-800 transition-colors"
+              >
+                <Download size={18} />
               </a>
             </div>
 
@@ -119,8 +127,8 @@ export default function Hero() {
 
               {/* Floating badge */}
               <div className="absolute -bottom-5 -left-5 bg-card border border-slate-700/60 rounded-xl px-4 py-2.5 shadow-2xl backdrop-blur-sm">
-                <p className="text-xs text-slate-500">Actuellement</p>
-                <p className="text-sm font-semibold text-primary">En stage 🎓 Soutenance bientôt</p>
+                <p className="text-xs text-slate-500">Recherche</p>
+                <p className="text-sm font-semibold text-primary">Master / Cycle Ingénieur</p>
               </div>
             </div>
           </div>
