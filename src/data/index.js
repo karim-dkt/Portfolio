@@ -84,6 +84,14 @@ export const skills = [
 
 export const education = [
   {
+    degree: 'Master — Cloud & Internet des Objets',
+    school: 'Faculté des Sciences et Techniques — Fès',
+    period: '2026 – …',
+    badge: 'Inscrit',
+    description:
+      "Formation avancée en architectures cloud, virtualisation, IoT et systèmes embarqués connectés. Approfondissement des protocoles réseau, de la sécurité des objets connectés et du déploiement d'infrastructures distribuées.",
+  },
+  {
     degree: 'Licence 3 — Génie Informatique',
     school: 'Faculté des Sciences et Techniques — Fès',
     period: '2025 – 2026',
@@ -109,27 +117,28 @@ export const education = [
 export const projects = [
   {
     id: 4,
-    title: 'AGSV',
-    type: 'Projet de stage — SaaS',
+    title: 'AGSV → Koris ERP',
+    type: 'Projet de stage évolué — ERP SaaS',
     year: '2026',
-    badge: 'SaaS',
+    badge: 'ERP SaaS',
     description:
-      "Plateforme SaaS complète de gestion de stock et de vente pour PME. Architecture full-stack Spring Boot + React, système multi-rôles sur 3 niveaux, mode hors-ligne PWA, exports PDF/Excel et journal d'audit complet.",
-    tech: ['Java', 'Spring Boot', 'React', 'MySQL', 'JWT', 'Docker', 'PWA', 'OpenPDF', 'Apache POI'],
+      "ERP SaaS multi-entreprises né d'un projet de stage, évolué en plateforme complète. Full-stack Spring Boot + React avec modules RH, comptabilité, gestion clients/fournisseurs, notifications SMS/WhatsApp, mode hors-ligne PWA et exports PDF/Excel.",
+    tech: ['Java', 'Spring Boot', 'React', 'MySQL', 'JWT', 'Docker', 'PWA', 'Redis', 'Twilio', 'Cloudflare R2', 'OpenPDF', 'Apache POI'],
     github: 'https://github.com/karim-dkt/AGSV',
     demo: null,
     video: null,
     logo: '/agsv-logo.png',
     logoGlow: '#1a6b3a',
     highlights: [
-      'Architecture full-stack Spring Boot 3.4 + React 19',
-      'Système multi-rôles : AdminPrincipal → Administrateur → Vendeur',
+      'Architecture full-stack Spring Boot 3.4 + React 19 — 51 entités JPA, 26 modules frontend',
+      'Système multi-rôles : Developer → AdminPrincipal → Administrateur → Vendeur',
       'Multi-entreprises et multi-dépôts avec périmètres isolés',
-      'Auth JWT, BCrypt, protection brute-force + Cloudflare Tunnel',
+      'Modules RH, comptabilité, profils clients/fournisseurs et grilles tarifaires',
+      'Notifications SMS/WhatsApp via Twilio, stockage fichiers Cloudflare R2',
+      'Auth JWT, BCrypt, protection brute-force + déploiement Cloudflare Tunnel',
       "Journal d'audit : 40+ actions tracées avec filtres avancés",
       'Mode hors-ligne PWA : cache IndexedDB + file de requêtes + synchro auto',
       'Exports PDF (factures, rapports) et Excel via Apache POI',
-      'Déploiement Docker Compose + Cloudflare Tunnel',
     ],
   },
   {

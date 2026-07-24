@@ -4,7 +4,7 @@ import { useInView } from '../hooks/useInView'
 import { useCounter } from '../hooks/useCounter'
 
 const ROLES = [
-  'Étudiant en Génie Informatique',
+  'Étudiant en Master Cloud & IoT',
   'Développeur Web',
   'Passionné de Cybersécurité',
   'Problem Solver',
@@ -12,7 +12,7 @@ const ROLES = [
 
 const STATS = [
   { target: 5,  suffix: '',  label: 'Projets'     },
-  { target: 3,  suffix: '',  label: 'Formations'   },
+  { target: 4,  suffix: '',  label: 'Formations'   },
   { target: 20, suffix: '+', label: 'Technologies' },
 ]
 
@@ -86,7 +86,7 @@ export default function Hero() {
                 Voir mes projets <ArrowRight size={18} />
               </a>
               <a
-                href="/KARIM_DIAKITÉ.pdf"
+                href="/Karim_Diakité_MST_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-primary/50 text-primary font-semibold rounded-lg hover:bg-primary/10 transition-colors"
@@ -94,7 +94,7 @@ export default function Hero() {
                 <Eye size={18} /> Visualiser le CV
               </a>
               <a
-                href="/KARIM_DIAKITÉ.pdf"
+                href="/Karim_Diakité_MST_CV.pdf"
                 download
                 className="inline-flex items-center gap-2 px-4 py-3 border border-slate-700/60 text-slate-400 font-semibold rounded-lg hover:bg-slate-800 transition-colors"
               >
@@ -127,8 +127,8 @@ export default function Hero() {
 
               {/* Floating badge */}
               <div className="absolute -bottom-5 -left-5 bg-card border border-slate-700/60 rounded-xl px-4 py-2.5 shadow-2xl backdrop-blur-sm">
-                <p className="text-xs text-slate-500">Recherche</p>
-                <p className="text-sm font-semibold text-primary">Master / Cycle Ingénieur</p>
+                <p className="text-xs text-slate-500">En formation</p>
+                <p className="text-sm font-semibold text-primary">Master Cloud & IoT — FST</p>
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ const INTERESTS = [
 
 const INFO_CHIPS = [
   { icon: '📍', text: 'Fès, Maroc' },
-  { icon: '🎓', text: 'FST Fès — L3 GI' },
+  { icon: '🎓', text: 'FST Fès — Master Cloud & IoT' },
   { icon: '🇨🇮', text: 'Origine : Korhogo' },
   { icon: '📧', text: 'thekardiak@gmail.com' },
 ]
@@ -53,23 +53,21 @@ export default function About() {
             <p>
               Je me nomme{' '}
               <span className="text-white font-medium">Diakité Karim</span>, né le 1er mars
-              2006 à Korhogo, en Côte d&apos;Ivoire. Actuellement en Licence 3 de Génie
-              Informatique à la{' '}
-              <span className="text-primary font-medium">FST Fès</span>, je construis jour
-              après jour mes compétences en informatique.
+              2006 à Korhogo, en Côte d&apos;Ivoire. Inscrit en Master{' '}
+              <span className="text-primary font-medium">Cloud & Internet des Objets</span> à
+              la FST Fès, je construis des projets concrets qui reflètent mes compétences
+              autant que mes ambitions.
             </p>
             <p>
               Le{' '}
               <span className="text-white font-medium">développement logiciel</span> et la{' '}
-              <span className="text-white font-medium">cybersécurité</span> m&apos;attirent
-              particulièrement. Je les considère comme la suite logique de mon parcours —
-              des domaines dans lesquels je souhaite me spécialiser et exceller.
+              <span className="text-white font-medium">cybersécurité</span> sont au cœur de
+              mon parcours. J&apos;y associe désormais une appétence croissante pour les
+              architectures cloud et les systèmes embarqués connectés.
             </p>
             <p>
-              Rigoureux et curieux, je cherche à apprendre en profondeur, à expérimenter,
-              et à me construire une solide base pour contribuer à des projets techniques
-              ambitieux. Mon ambition est de devenir un professionnel compétent et polyvalent
-              dans l&apos;informatique.
+              Rigoureux et curieux, je conçois des solutions complètes — du backend au
+              déploiement — en visant toujours la fiabilité, la sécurité et la scalabilité.
             </p>
 
             <div className="flex flex-wrap gap-2.5 pt-2">
