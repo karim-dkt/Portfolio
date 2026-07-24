@@ -26,7 +26,7 @@ export default function Footer() {
           <DKTLogo className="text-xl" />
           <div>
             <p className="text-sm font-semibold text-white">Karim Diakité</p>
-            <p className="text-xs text-slate-500">Étudiant en Génie Informatique</p>
+            <p className="text-xs text-slate-500">Étudiant en Master Cloud & IoT</p>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         <p className="text-xs text-slate-600 text-center">
-          © {new Date().getFullYear()} Karim Diakité — React & Tailwind CSS
+          © {new Date().getFullYear()} Karim Diakité — Tous droits réservés
         </p>
       </div>
     </footer>

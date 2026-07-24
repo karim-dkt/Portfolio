@@ -48,9 +48,9 @@ export default function Contact() {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Parlons ensemble</h3>
               <p className="text-slate-400 leading-relaxed text-sm">
-                Diplômé d&apos;une Licence en Génie Informatique, je recherche un Master ou un
-                cycle Ingénieur. Je reste ouvert aux collaborations sur des projets et à toute
-                discussion autour de l&apos;informatique, du développement ou de la cybersécurité.
+                Inscrit en Master Cloud & Internet des Objets à la FST Fès, je reste ouvert
+                aux collaborations sur des projets et à toute discussion autour du développement,
+                du cloud ou de la cybersécurité.
               </p>
             </div>
 

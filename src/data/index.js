@@ -127,8 +127,8 @@ export const projects = [
     github: 'https://github.com/karim-dkt/AGSV',
     demo: null,
     video: null,
-    logo: '/agsv-logo.png',
-    logoGlow: '#1a6b3a',
+    logo: '/koris-logo.svg',
+    logoGlow: '#2563EB',
     highlights: [
       'Architecture full-stack Spring Boot 3.4 + React 19 — 51 entités JPA, 26 modules frontend',
       'Système multi-rôles : Developer → AdminPrincipal → Administrateur → Vendeur',
