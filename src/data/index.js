@@ -89,7 +89,7 @@ export const education = [
     period: '2026 – …',
     badge: 'Inscrit',
     description:
-      "Formation avancée en architectures cloud, virtualisation, IoT et systèmes embarqués connectés. Approfondissement des protocoles réseau, de la sécurité des objets connectés et du déploiement d'infrastructures distribuées.",
+      "Formation couvrant les services cloud (IaaS, PaaS, SaaS — AWS, Azure, GCP), les protocoles IoT (MQTT, CoAP, LoRaWAN), la sécurité cloud, le Big Data (Hadoop/Spark), l'IA embarquée et les architectures microservices/DevOps. Se conclut par un PFE de 4 à 6 mois.",
   },
   {
     degree: 'Licence 3 — Génie Informatique',
@@ -127,7 +127,7 @@ export const projects = [
     github: 'https://github.com/karim-dkt/AGSV',
     demo: null,
     video: null,
-    logo: '/koris-logo.svg',
+    logo: '/koris-logo.png',
     logoGlow: '#2563EB',
     highlights: [
       'Architecture full-stack Spring Boot 3.4 + React 19 — 51 entités JPA, 26 modules frontend',
