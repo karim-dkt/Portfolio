@@ -1,17 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Education from './components/Education'
-import Certifications from './components/Certifications'
 import Projects from './components/Projects'
+import Skills from './components/Skills'
+import Parcours from './components/Parcours'
+import About from './components/About'
 import Contact from './components/Contact'
-import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import ScrollProgress from './components/ScrollProgress'
 
-const SECTIONS = ['accueil', 'apropos', 'projets', 'competences', 'certifications', 'formation', 'contact']
+const SECTIONS = ['accueil', 'projets', 'competences', 'parcours', 'apropos', 'contact']
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('accueil')
@@ -23,31 +21,30 @@ export default function App() {
           if (entry.isIntersecting) setActiveSection(entry.target.id)
         })
       },
-      { threshold: 0.35, rootMargin: '-80px 0px -40% 0px' }
+      { rootMargin: '-45% 0px -50% 0px' }
     )
-
     SECTIONS.forEach((id) => {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     })
-
     return () => observer.disconnect()
   }, [])
 
   return (
-    <div className="bg-navy-900 text-slate-100 min-h-screen font-sans">
+    <div className="min-h-screen bg-paper text-ink font-sans">
+      <a href="#projets" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 btn-route">
+        Aller aux projets
+      </a>
       <ScrollProgress />
       <Navbar activeSection={activeSection} />
       <main>
         <Hero />
-        <About />
         <Projects />
         <Skills />
-        <Certifications />
-        <Education />
-        <Contact />
+        <Parcours />
+        <About />
       </main>
-      <Footer />
+      <Contact />
       <BackToTop />
     </div>
   )

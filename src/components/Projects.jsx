@@ -1,283 +1,193 @@
-import { useState } from 'react'
-import { ExternalLink, X, Play, Lock } from 'lucide-react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { ExternalLink, X, Lock, ArrowUpRight } from 'lucide-react'
 import GithubIcon from './GithubIcon'
-import { useInView } from '../hooks/useInView'
 import SectionTitle from './SectionTitle'
 import { projects } from '../data'
 
-const BADGE_STYLES = {
-  Web:       'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  BDD:       'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-  PWA:       'bg-violet-500/10 text-violet-400 border-violet-500/20',
-  SaaS:      'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  'ERP SaaS':'bg-blue-600/10 text-blue-400 border-blue-600/20',
-  Java:      'bg-orange-500/10 text-orange-400 border-orange-500/20',
-  'Sécurité':'bg-rose-500/10 text-rose-400 border-rose-500/20',
-}
-
-function ProjectCard({ project, onClick, index }) {
-  const [ref, inView] = useInView()
-
+function Visual({ project, big = false }) {
+  const h = big ? 'h-56 sm:h-72 lg:h-full lg:min-h-[340px]' : 'h-40'
+  if (project.image)
+    return (
+      <div className={`${h} bg-sea-soft flex items-center justify-center`}>
+        <img
+          src={project.image}
+          alt={`Schéma du projet ${project.title}`}
+          className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain p-3' : 'object-cover'}`}
+        />
+      </div>
+    )
   return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${index * 150}ms` }}
-      className={`group bg-card border border-slate-700/40 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-700 cursor-pointer ${
-        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-      onClick={onClick}
-    >
-      {/* Image ou Logo */}
-      <div className="relative h-48 overflow-hidden">
-        {project.TileIcon ? (
-          <div className="w-full h-full flex items-center justify-center bg-navy-800 relative">
-            <div
-              className="absolute inset-0 opacity-20"
-              style={{ background: `radial-gradient(circle at center, ${project.logoGlow || '#00d4ff'} 0%, transparent 70%)` }}
-            />
-            <div className="relative z-10 p-6 rounded-3xl bg-navy-900/80 border border-slate-700/60 shadow-2xl group-hover:scale-110 transition-transform duration-500">
-              <project.TileIcon size={56} style={{ color: project.logoGlow || '#00d4ff' }} strokeWidth={1.5} />
-            </div>
-          </div>
-        ) : project.logo ? (
-          <div className="w-full h-full flex items-center justify-center bg-navy-800 relative">
-            <div
-              className="absolute inset-0 opacity-20"
-              style={{ background: `radial-gradient(circle at center, ${project.logoGlow || '#00d4ff'} 0%, transparent 70%)` }}
-            />
-            <img
-              src={project.logo}
-              alt={`Logo ${project.title}`}
-              className="h-28 w-28 object-contain relative z-10 drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
-            />
-          </div>
-        ) : (
-          <img
-            src={project.image}
-            alt={project.title}
-            className={`w-full h-full bg-navy-800 ${project.imageFit === 'contain' ? 'object-contain p-2' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent pointer-events-none" />
-        <span
-          className={`absolute top-3 right-3 text-xs font-medium px-2.5 py-1 rounded-full border backdrop-blur-sm ${
-            BADGE_STYLES[project.badge] || BADGE_STYLES.Web
-          }`}
-        >
-          {project.badge}
+    <div className={`${h} bg-land relative flex items-center justify-center overflow-hidden`}>
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
+        {[30, 70, 110, 150, 190].map((y) => (
+          <path key={y} d={`M-10 ${y} C 100 ${y - 14} 200 ${y + 14} 410 ${y - 6}`} fill="none" stroke="#a8551b" strokeOpacity=".16" />
+        ))}
+      </svg>
+      {project.logo ? (
+        <img src={project.logo} alt={`Logo ${project.title}`} className={`relative object-contain ${big ? 'h-44 w-auto sm:h-56' : 'h-20 w-20'}`} />
+      ) : project.TileIcon ? (
+        <span className="relative p-5 rounded-2xl bg-white border border-ink/10 shadow-sm">
+          <project.TileIcon size={big ? 56 : 40} strokeWidth={1.6} style={{ color: project.logoGlow || '#13242e' }} />
         </span>
-        {project.video && (
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="p-3 bg-primary/20 rounded-full border border-primary/30 backdrop-blur-sm">
-              <Play size={20} className="text-primary" />
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Content */}
-      <div className="p-6">
-        <h3 className="font-bold text-lg text-white group-hover:text-primary transition-colors mb-1">
-          {project.title}
-        </h3>
-        <div className="flex items-center gap-2 mb-3">
-          <p className="text-xs text-slate-500">{project.type}</p>
-          {project.year && (
-            <>
-              <span className="text-slate-700">·</span>
-              <span className="text-xs font-mono text-slate-500">{project.year}</span>
-            </>
-          )}
-        </div>
-        <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 mb-4">
-          {project.description}
-        </p>
-
-        {/* Tech tags */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {project.tech.slice(0, 4).map((t) => (
-            <span
-              key={t}
-              className="text-xs px-2 py-0.5 bg-slate-800 text-slate-400 rounded border border-slate-700/60"
-            >
-              {t}
-            </span>
-          ))}
-          {project.tech.length > 4 && (
-            <span className="text-xs px-2 py-0.5 text-slate-500 self-center">
-              +{project.tech.length - 4}
-            </span>
-          )}
-        </div>
-
-        {/* Links row */}
-        <div className="flex items-center gap-4" onClick={(e) => e.stopPropagation()}>
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
-            >
-              <GithubIcon size={15} /> Code
-            </a>
-          )}
-          {project.privateCode && (
-            <span className="inline-flex items-center gap-1.5 text-sm text-slate-500">
-              <Lock size={14} /> Code privé
-            </span>
-          )}
-          {project.demo && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-primary transition-colors"
-            >
-              <ExternalLink size={15} /> Démo
-            </a>
-          )}
-          <span className="ml-auto text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-            Détails →
-          </span>
-        </div>
-      </div>
+      ) : null}
+      {big && project.demo && (
+        <span className="absolute left-4 bottom-4 inline-flex items-center gap-2 text-sm font-semibold text-ink bg-paper/90 border border-line rounded-full px-3 py-1.5">
+          <span className="w-2 h-2 rounded-full bg-route" aria-hidden="true" /> En production · {project.demo.replace(/^https?:\/\/(www\.)?/, '')}
+        </span>
+      )}
     </div>
   )
 }
 
-function ProjectModal({ project, onClose }) {
+function Links({ project, onDetails }) {
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-      onClick={onClose}
-    >
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[15px] font-semibold">
+      {project.demo && (
+        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-route hover:text-route-dark">
+          <ExternalLink size={16} /> Voir le site
+        </a>
+      )}
+      {project.github && (
+        <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-ink hover:text-route">
+          <GithubIcon size={16} /> Code source
+        </a>
+      )}
+      {project.privateCode && (
+        <span className="inline-flex items-center gap-1.5 text-ink-mute">
+          <Lock size={15} /> Code privé
+        </span>
+      )}
+      {onDetails && (
+        <button type="button" onClick={onDetails} className="inline-flex items-center gap-1 text-ink-soft hover:text-route ml-auto rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30">
+          Détails <ArrowUpRight size={16} />
+        </button>
+      )}
+    </div>
+  )
+}
+
+function Featured({ project, onOpen, flip }) {
+  return (
+    <article className="grid lg:grid-cols-2 bg-white border border-line rounded-2xl overflow-hidden">
+      <div className={flip ? 'lg:order-2' : ''}>
+        <Visual project={project} big />
+      </div>
+      <div className="p-6 sm:p-8 flex flex-col">
+        <p className="text-sm font-semibold text-contour mb-1.5">
+          {project.type} · <span className="font-mono">{project.year}</span>
+        </p>
+        <h3 className="text-[28px] sm:text-[32px] leading-[1.1] font-extrabold text-ink mb-3">{project.title}</h3>
+        <p className="text-[16px] leading-relaxed text-ink-soft mb-5">{project.description}</p>
+        <ul className="space-y-2 mb-6">
+          {project.highlights.slice(0, 4).map((h) => (
+            <li key={h} className="flex gap-3 text-[15px] leading-snug text-ink">
+              <span className="mt-[7px] w-2 h-2 rounded-full bg-route shrink-0" aria-hidden="true" />
+              {h}
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-wrap gap-1.5 mb-6">
+          {project.tech.map((t) => (
+            <span key={t} className="tag">{t}</span>
+          ))}
+        </div>
+        <div className="mt-auto pt-5 border-t border-line">
+          <Links project={project} onDetails={onOpen} />
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function Card({ project, onOpen }) {
+  return (
+    <article className="group bg-white border border-line rounded-2xl overflow-hidden flex flex-col hover:border-ink/30 transition-colors">
+      <button type="button" onClick={onOpen} className="text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30" aria-label={`Détails du projet ${project.title}`}>
+        <Visual project={project} />
+      </button>
+      <div className="p-5 flex flex-col flex-1">
+        <p className="text-sm font-semibold text-contour mb-1">
+          {project.type} · <span className="font-mono">{project.year}</span>
+        </p>
+        <h3 className="text-[21px] font-extrabold text-ink mb-2">{project.title}</h3>
+        <p className="text-[15px] leading-relaxed text-ink-soft mb-4 line-clamp-3">{project.description}</p>
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {project.tech.slice(0, 4).map((t) => (
+            <span key={t} className="tag">{t}</span>
+          ))}
+        </div>
+        <div className="mt-auto pt-4 border-t border-line">
+          <Links project={project} onDetails={onOpen} />
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function Modal({ project, onClose }) {
+  const closeRef = useRef(null)
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && onClose()
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    closeRef.current?.focus()
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [onClose])
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4 bg-ink/60 backdrop-blur-sm" onClick={onClose}>
       <div
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-navy-800 border border-slate-700/60 rounded-2xl shadow-2xl"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-paper rounded-t-2xl sm:rounded-2xl shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
+          ref={closeRef}
+          type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-1.5 rounded-full bg-slate-700/80 hover:bg-slate-600 text-slate-300 transition-colors"
+          className="absolute top-3 right-3 z-10 p-2.5 rounded-full bg-paper/90 border border-line text-ink hover:text-route focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30"
           aria-label="Fermer"
         >
           <X size={18} />
         </button>
-
-        {/* Media */}
         {project.video ? (
-          <div className="aspect-video w-full">
-            <iframe
-              src={project.video}
-              className="w-full h-full rounded-t-2xl"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-              title={project.title}
-            />
-          </div>
-        ) : project.TileIcon ? (
-          <div className="h-52 flex items-center justify-center rounded-t-2xl bg-navy-900 relative overflow-hidden">
-            <div
-              className="absolute inset-0 opacity-25"
-              style={{ background: `radial-gradient(circle at center, ${project.logoGlow || '#00d4ff'} 0%, transparent 65%)` }}
-            />
-            <project.TileIcon size={72} style={{ color: project.logoGlow || '#00d4ff' }} strokeWidth={1.5} className="relative z-10" />
-          </div>
-        ) : project.logo ? (
-          <div className="h-52 flex items-center justify-center rounded-t-2xl bg-navy-900 relative overflow-hidden">
-            <div
-              className="absolute inset-0 opacity-25"
-              style={{ background: `radial-gradient(circle at center, ${project.logoGlow || '#00d4ff'} 0%, transparent 65%)` }}
-            />
-            <img
-              src={project.logo}
-              alt={`Logo ${project.title}`}
-              className="h-36 w-36 object-contain relative z-10 drop-shadow-2xl"
-            />
+          <div className="aspect-video w-full bg-ink">
+            <iframe src={project.video} className="w-full h-full" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title={`Vidéo du projet ${project.title}`} />
           </div>
         ) : (
-          <img
-            src={project.image}
-            alt={project.title}
-            className={`w-full h-52 rounded-t-2xl bg-navy-800 ${project.imageFit === 'contain' ? 'object-contain p-3' : 'object-cover'}`}
-          />
+          <Visual project={project} />
         )}
-
-        {/* Body */}
-        <div className="p-6 space-y-5">
-          <div>
-            <div className="flex flex-wrap items-center gap-3 mb-1">
-              <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-              <span
-                className={`text-xs font-medium px-2.5 py-1 rounded-full border ${
-                  BADGE_STYLES[project.badge] || BADGE_STYLES.Web
-                }`}
-              >
-                {project.badge}
-              </span>
-            </div>
-            <p className="text-sm text-slate-500">
-              {project.type}{project.year && <span className="font-mono ml-2">{project.year}</span>}
-            </p>
-          </div>
-
-          <p className="text-slate-400 leading-relaxed text-sm">{project.description}</p>
-
+        <div className="p-6 sm:p-8">
+          <p className="text-sm font-semibold text-contour mb-1">
+            {project.type} · <span className="font-mono">{project.year}</span>
+          </p>
+          <h2 id="modal-title" className="text-[28px] leading-tight font-extrabold text-ink mb-3">{project.title}</h2>
+          <p className="text-[16px] leading-relaxed text-ink-soft mb-6">{project.description}</p>
           {project.highlights && (
-            <div>
-              <h3 className="text-sm font-semibold text-white mb-3">Points clés</h3>
-              <ul className="space-y-2">
+            <>
+              <h3 className="text-[17px] font-extrabold text-ink mb-3">Points clés</h3>
+              <ul className="space-y-2 mb-6">
                 {project.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2 text-sm text-slate-400">
-                    <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
+                  <li key={h} className="flex gap-3 text-[15px] leading-snug text-ink">
+                    <span className="mt-[7px] w-2 h-2 rounded-full bg-route shrink-0" aria-hidden="true" />
                     {h}
                   </li>
                 ))}
               </ul>
-            </div>
+            </>
           )}
-
-          <div>
-            <h3 className="text-sm font-semibold text-white mb-3">Technologies</h3>
-            <div className="flex flex-wrap gap-2">
-              {project.tech.map((t) => (
-                <span
-                  key={t}
-                  className="text-xs px-2.5 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-1.5 mb-6">
+            {project.tech.map((t) => (
+              <span key={t} className="tag">{t}</span>
+            ))}
           </div>
-
-          <div className="flex flex-wrap gap-3 pt-2">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm transition-colors"
-              >
-                <GithubIcon size={16} /> Code source
-              </a>
-            )}
-            {project.privateCode && (
-              <span className="inline-flex items-center gap-2 px-4 py-2 border border-slate-700/60 text-slate-400 rounded-lg text-sm">
-                <Lock size={16} /> Code source privé
-              </span>
-            )}
-            {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-navy-900 font-semibold rounded-lg text-sm hover:bg-cyan-400 transition-colors"
-              >
-                <ExternalLink size={16} /> Voir la démo
-              </a>
-            )}
+          <div className="pt-5 border-t border-line">
+            <Links project={project} />
           </div>
         </div>
       </div>
@@ -287,37 +197,34 @@ function ProjectModal({ project, onClose }) {
 
 export default function Projects() {
   const [selected, setSelected] = useState(null)
+  const close = useCallback(() => setSelected(null), [])
+  const featured = projects.filter((p) => p.featured)
+  const others = projects.filter((p) => !p.featured)
 
   return (
-    <section id="projets" className="py-24 bg-navy-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="projets" className="py-20 sm:py-28 bg-paper">
+      <div className="page">
         <SectionTitle
-          title="Mes Projets"
-          subtitle="Projets académiques et personnels — cliquez pour les détails"
+          title="Projets"
+          subtitle="Un lab réseau sécurisé, un ERP SaaS en production, et les projets qui m’ont appris le métier."
         />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((p, i) => (
-            <ProjectCard key={p.id} project={p} index={i} onClick={() => setSelected(p)} />
+        <div className="space-y-6 mb-6">
+          {featured.map((p, i) => (
+            <Featured key={p.id} project={p} flip={i % 2 === 1} onOpen={() => setSelected(p)} />
           ))}
         </div>
-
-        <div className="text-center mt-12">
-          <a
-            href="https://github.com/karim-dkt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 rounded-lg text-sm transition-colors"
-          >
-            <GithubIcon size={18} />
-            Voir tous mes projets sur GitHub
-          </a>
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          {others.map((p) => (
+            <Card key={p.id} project={p} onOpen={() => setSelected(p)} />
+          ))}
         </div>
+        <p className="mt-10">
+          <a href="https://github.com/karim-dkt" target="_blank" rel="noopener noreferrer" className="btn-line">
+            <GithubIcon size={18} /> Tous mes dépôts sur GitHub
+          </a>
+        </p>
       </div>
-
-      {selected && (
-        <ProjectModal project={selected} onClose={() => setSelected(null)} />
-      )}
+      {selected && <Modal project={selected} onClose={close} />}
     </section>
   )
 }

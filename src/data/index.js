@@ -6,6 +6,8 @@ export const skills = [
   {
     category: 'Réseaux & systèmes',
     Icon: Network,
+    swatch: '#d6127e',
+    proof: 'Lab DHCP, DNS & DNSSEC · projet Packet Tracer en cours',
     items: [
       { name: 'Linux',         Icon: SiLinux,     color: '#FCC624' },
       { name: 'Windows',       Icon: FaWindows,   color: '#0078D4' },
@@ -18,6 +20,8 @@ export const skills = [
   {
     category: 'Services réseau',
     Icon: Server,
+    swatch: '#2b8aa6',
+    proof: 'Lab DHCP, DNS & DNSSEC',
     items: [
       { name: 'DHCP + relais', Icon: Server,      color: '#22c55e' },
       { name: 'DNS BIND9',     Icon: Globe,       color: '#38bdf8' },
@@ -28,18 +32,22 @@ export const skills = [
   {
     category: 'Cloud & DevOps',
     Icon: Cloud,
+    swatch: '#a8551b',
+    proof: 'Koris ERP (Docker, Cloudflare Tunnel) · Wari (Supabase)',
     items: [
       { name: 'Docker',            Icon: SiDocker,     color: '#2496ED' },
       { name: 'VirtualBox',        Icon: SiVirtualbox, color: '#2F61B4' },
       { name: 'Cloudflare Tunnel', Icon: SiCloudflare, color: '#F38020' },
       { name: 'Supabase',          Icon: SiSupabase,   color: '#3ECF8E' },
       { name: 'Git',               Icon: SiGit,        color: '#F05032' },
-      { name: 'GitHub',            Icon: SiGithub,     color: '#f0f6fc' },
+      { name: 'GitHub',            Icon: SiGithub,     color: '#13242e' },
     ],
   },
   {
     category: 'Développement',
     Icon: Code2,
+    swatch: '#13242e',
+    proof: 'Koris ERP · Wari · SGCD',
     items: [
       { name: 'Java',        Icon: FaJava,       color: '#f89820' },
       { name: 'Spring Boot', Icon: SiSpringboot, color: '#6DB33F' },
@@ -86,8 +94,9 @@ export const education = [
 export const projects = [
   {
     id: 4,
-    title: 'AGSV → Koris ERP',
-    type: 'Projet de stage évolué — ERP SaaS',
+    featured: true,
+    title: 'Koris ERP',
+    type: 'Projet de stage devenu un ERP SaaS',
     year: '2026',
     badge: 'ERP SaaS',
     description:
@@ -113,6 +122,7 @@ export const projects = [
   },
   {
     id: 6,
+    featured: true,
     title: 'Lab DHCP, DNS & DNSSEC',
     type: 'Projet académique — Lab réseau & sécurité',
     year: '2026',

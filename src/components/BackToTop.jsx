@@ -1,24 +1,21 @@
-import { useState, useEffect } from 'react'
-import { ChevronUp } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowUp } from 'lucide-react'
 
 export default function BackToTop() {
-  const [visible, setVisible] = useState(false)
-
+  const [show, setShow] = useState(false)
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400)
-    window.addEventListener('scroll', onScroll)
+    const onScroll = () => setShow(window.scrollY > 700)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  if (!visible) return null
-
+  if (!show) return null
   return (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-8 right-8 z-50 p-3 bg-primary text-navy-900 rounded-full shadow-lg shadow-primary/30 hover:bg-cyan-400 transition-all hover:scale-110"
-      aria-label="Retour en haut"
+    <a
+      href="#accueil"
+      aria-label="Revenir en haut de la page"
+      className="fixed bottom-5 right-5 z-30 w-11 h-11 rounded-full bg-ink text-paper flex items-center justify-center shadow-lg hover:bg-route focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30"
     >
-      <ChevronUp size={20} />
-    </button>
+      <ArrowUp size={20} />
+    </a>
   )
 }

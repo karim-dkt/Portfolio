@@ -4,37 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: '#020b18',
-          900: '#050d1a',
-          800: '#091325',
-          700: '#0c1a30',
-          600: '#0e2040',
-        },
-        card: '#0c1627',
-        primary: '#00d4ff',
-        secondary: '#8b5cf6',
+        paper: '#fbfbf2',
+        land: '#f3f1e2',
+        sea: { DEFAULT: '#bfe3ee', deep: '#8fcadb', soft: '#e3f2f6' },
+        ink: { DEFAULT: '#13242e', soft: '#3d5461', mute: '#5d707a' },
+        contour: '#a8551b',
+        route: { DEFAULT: '#d6127e', dark: '#b00e68', soft: '#fbe3ef' },
+        night: { DEFAULT: '#0d1c24', soft: '#16303d' },
+        line: '#e3e1cf',
       },
       fontFamily: {
-        sans: ['Inter', 'Segoe UI', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
+        sans: ['MidDot', 'Overpass', 'system-ui', 'sans-serif'],
+        mono: ['"Overpass Mono"', 'ui-monospace', 'monospace'],
       },
-      animation: {
-        blink: 'blink 1s step-end infinite',
-        float: 'float 6s ease-in-out infinite',
-      },
-      keyframes: {
-        blink: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-8px)' },
-        },
-      },
+      maxWidth: { page: '1240px' },
     },
   },
   plugins: [],
 }
-

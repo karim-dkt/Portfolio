@@ -1,59 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="Inter, Segoe UI, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="Overpass, system-ui, sans-serif">
   <defs>
-    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
-      <stop offset="0" stop-color="#00d4ff" stop-opacity=".18"/>
-      <stop offset="1" stop-color="#00d4ff" stop-opacity="0"/>
-    </radialGradient>
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0 0 10 5 0 10z" fill="#64748b"/>
-    </marker>
-    <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0 0 10 5 0 10z" fill="#f43f5e"/>
-    </marker>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5d707a"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#d6127e"/></marker>
   </defs>
-  <rect width="800" height="400" fill="#091325"/>
-  <rect width="800" height="400" fill="url(#glow)"/>
-
-  <!-- réseau local -->
-  <line x1="70" y1="300" x2="730" y2="300" stroke="#1e3a5f" stroke-width="6" stroke-linecap="round"/>
-  <text x="400" y="335" text-anchor="middle" font-size="15" fill="#64748b">192.168.1.0/24 · informatique.fst</text>
-  <line x1="170" y1="232" x2="170" y2="300" stroke="#1e3a5f" stroke-width="3"/>
-  <line x1="400" y1="232" x2="400" y2="300" stroke="#1e3a5f" stroke-width="3"/>
-  <line x1="630" y1="232" x2="630" y2="300" stroke="#1e3a5f" stroke-width="3"/>
-
-  <!-- ns1 maître -->
-  <rect x="80" y="132" width="180" height="100" rx="16" fill="#0c1627" stroke="#00d4ff" stroke-width="2.5"/>
-  <text x="170" y="172" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">ns1 maître</text>
-  <text x="170" y="200" text-anchor="middle" font-size="16" fill="#94a3b8">192.168.1.4</text>
-  <!-- bouclier DNSSEC -->
-  <g transform="translate(238 112)">
-    <path d="M0 -2 20 6v14c0 13-9 21-20 25C-11 41-20 33-20 20V6z" fill="#f59e0b"/>
-    <path d="M-8 20l6 6 11-12" fill="none" stroke="#091325" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="800" height="420" fill="#e3f2f6"/>
+  <g fill="none" stroke="#a8551b" stroke-opacity=".18">
+    <path d="M0 70C140 40 260 110 400 80S660 30 800 70"/>
+    <path d="M0 360C160 330 300 390 440 350S680 320 800 350"/>
+    <path d="M0 395C180 370 320 410 470 385S700 365 800 385"/>
   </g>
+  <line x1="70" y1="310" x2="730" y2="310" stroke="#13242e" stroke-width="5" stroke-linecap="round"/>
+  <text x="400" y="342" text-anchor="middle" font-size="15" fill="#5d707a">192.168.1.0/24 · informatique.fst</text>
+  <g stroke="#13242e" stroke-width="2.5"><line x1="170" y1="244" x2="170" y2="310"/><line x1="400" y1="244" x2="400" y2="310"/><line x1="630" y1="244" x2="630" y2="310"/></g>
 
-  <!-- ns2 esclave -->
-  <rect x="310" y="132" width="180" height="100" rx="16" fill="#0c1627" stroke="#334155" stroke-width="2"/>
-  <text x="400" y="172" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">ns2 esclave</text>
-  <text x="400" y="200" text-anchor="middle" font-size="16" fill="#94a3b8">192.168.1.5</text>
-
-  <!-- client -->
-  <rect x="540" y="132" width="180" height="100" rx="16" fill="#0c1627" stroke="#334155" stroke-width="2"/>
-  <text x="630" y="172" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Client</text>
-  <text x="630" y="200" text-anchor="middle" font-size="16" fill="#94a3b8">192.168.1.10</text>
-
-  <!-- flux -->
-  <line x1="262" y1="170" x2="306" y2="170" stroke="#64748b" stroke-width="2.5" marker-end="url(#arr)"/>
-  <text x="284" y="158" text-anchor="middle" font-size="12" fill="#64748b">AXFR</text>
-  <line x1="538" y1="182" x2="494" y2="182" stroke="#64748b" stroke-width="2.5" marker-end="url(#arr)"/>
-
-  <!-- faux serveur -->
-  <rect x="300" y="36" width="200" height="54" rx="12" fill="#1a0f1a" stroke="#f43f5e" stroke-width="2" stroke-dasharray="7 5"/>
-  <text x="400" y="60" text-anchor="middle" font-size="16" font-weight="700" fill="#fda4af">Faux serveur</text>
-  <text x="400" y="80" text-anchor="middle" font-size="13" fill="#fb7185">poste1 → 1.2.3.4</text>
-  <line x1="400" y1="92" x2="400" y2="126" stroke="#f43f5e" stroke-width="2.5" marker-end="url(#arrRed)"/>
-  <g transform="translate(436 110)">
-    <circle r="14" fill="#f43f5e"/>
-    <path d="M-5 -5 5 5M5 -5-5 5" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <g>
+    <rect x="80" y="144" width="180" height="100" rx="14" fill="#fff" stroke="#13242e" stroke-width="2.5"/>
+    <text x="170" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#13242e">ns1 maître</text>
+    <text x="170" y="212" text-anchor="middle" font-size="16" fill="#5d707a">192.168.1.4</text>
+    <g transform="translate(240 124)">
+      <path d="M0 -2 21 6v15c0 13-9 21-21 25C-12 42-21 34-21 21V6z" fill="#a8551b"/>
+      <path d="M-8 21l6 6 11-12" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="240" y="186" text-anchor="middle" font-size="11" font-weight="800" fill="#a8551b">DNSSEC</text>
   </g>
-  <text x="458" y="115" font-size="14" font-weight="700" fill="#fb7185">SERVFAIL</text>
+  <rect x="310" y="144" width="180" height="100" rx="14" fill="#fff" stroke="#13242e" stroke-width="2.5"/>
+  <text x="400" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#13242e">ns2 esclave</text>
+  <text x="400" y="212" text-anchor="middle" font-size="16" fill="#5d707a">192.168.1.5</text>
+  <rect x="540" y="144" width="180" height="100" rx="14" fill="#fff" stroke="#13242e" stroke-width="2.5"/>
+  <text x="630" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#13242e">Client</text>
+  <text x="630" y="212" text-anchor="middle" font-size="16" fill="#5d707a">192.168.1.10</text>
+
+  <line x1="262" y1="184" x2="306" y2="184" stroke="#5d707a" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="284" y="230" text-anchor="middle" font-size="12" font-weight="600" fill="#5d707a">AXFR</text>
+  <line x1="538" y1="194" x2="494" y2="194" stroke="#5d707a" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <rect x="300" y="30" width="200" height="56" rx="12" fill="#fbe3ef" stroke="#d6127e" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="400" y="55" text-anchor="middle" font-size="17" font-weight="800" fill="#b00e68">Faux serveur</text>
+  <text x="400" y="76" text-anchor="middle" font-size="14" fill="#b00e68">poste1 → 1.2.3.4</text>
+  <line x1="400" y1="88" x2="400" y2="138" stroke="#d6127e" stroke-width="2.5" marker-end="url(#r)"/>
+  <circle cx="436" cy="116" r="14" fill="#d6127e"/>
+  <path d="M431 111l10 10M441 111l-10 10" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <text x="458" y="122" font-size="16" font-weight="800" fill="#d6127e">SERVFAIL</text>
 </svg>

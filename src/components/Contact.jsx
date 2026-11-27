@@ -1,16 +1,27 @@
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
-import { Send, Mail, Phone, CheckCircle, XCircle, Loader } from 'lucide-react'
-import { useInView } from '../hooks/useInView'
-import SectionTitle from './SectionTitle'
+import { Send, Mail, MessageCircle, CheckCircle, XCircle, Loader, GraduationCap } from 'lucide-react'
+import GithubIcon from './GithubIcon'
+import Logo from './Logo'
 
 const INPUT =
-  'w-full bg-navy-900 border border-slate-700/60 text-white placeholder-slate-500 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors'
+  'w-full bg-night border border-paper/20 text-paper placeholder-paper/40 rounded-lg px-4 py-3 text-[16px] focus:outline-none focus:border-route focus:ring-4 focus:ring-route/25 transition-colors'
+
+const CHANNELS = [
+  { Icon: MessageCircle, label: 'WhatsApp', value: '+212 6 57 14 58 08', href: 'https://wa.me/212657145808', main: true },
+  { Icon: Mail, label: 'E-mail', value: 'thekardiak@gmail.com', href: 'mailto:thekardiak@gmail.com' },
+  { Icon: GraduationCap, label: 'E-mail universitaire', value: 'karim.diakite@usmba.ac.ma', href: 'mailto:karim.diakite@usmba.ac.ma' },
+]
+
+const SOCIALS = [
+  { label: 'GitHub', href: 'https://github.com/karim-dkt' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/karimdkt' },
+  { label: 'Instagram', href: 'https://www.instagram.com/thekardiak.00/' },
+]
 
 export default function Contact() {
   const form = useRef()
   const [status, setStatus] = useState('idle')
-  const [ref, inView] = useInView()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -30,176 +41,101 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-navy-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <SectionTitle
-          title="Contact"
-          subtitle="Une question, une opportunité, une idée ? Parlons-en."
-        />
-
-        <div
-          ref={ref}
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-12 transition-all duration-700 ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          {/* Left — info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-3">Parlons ensemble</h3>
-              <p className="text-slate-400 leading-relaxed text-sm">
-                Je recherche un stage en cloud, DevOps ou administration réseau
-                d&apos;entreprise pour juillet et août 2027 en Côte d&apos;Ivoire. Le plus
-                rapide pour me joindre : WhatsApp ou e-mail.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <a
-                href="https://wa.me/212657145808"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-card border border-slate-700/40 rounded-xl hover:border-primary/20 transition-colors group"
-              >
-                <div className="p-2.5 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                  <Phone size={20} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500 mb-0.5">WhatsApp / Téléphone</p>
-                  <p className="text-sm text-white font-medium whitespace-nowrap">+212 6 57 14 58 08</p>
-                </div>
-              </a>
-
-              <a
-                href="mailto:thekardiak@gmail.com"
-                className="flex items-center gap-4 p-4 bg-card border border-slate-700/40 rounded-xl hover:border-primary/20 transition-colors group"
-              >
-                <div className="p-2.5 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                  <Mail size={20} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500 mb-0.5">Email personnel</p>
-                  <p className="text-sm text-white font-medium">thekardiak@gmail.com</p>
-                </div>
-              </a>
-
-              <a
-                href="mailto:karim.diakite@usmba.ac.ma"
-                className="flex items-center gap-4 p-4 bg-card border border-slate-700/40 rounded-xl hover:border-secondary/20 transition-colors group"
-              >
-                <div className="p-2.5 bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-colors flex-shrink-0">
-                  <Mail size={20} className="text-secondary" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500 mb-0.5">Email académique</p>
-                  <p className="text-sm text-white font-medium">
-                    karim.diakite@usmba.ac.ma
-                  </p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* Right — form */}
-          <div>
-            {status === 'success' ? (
-              <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-card border border-emerald-500/20 rounded-2xl gap-4">
-                <CheckCircle size={48} className="text-emerald-400" />
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    Message envoyé !
-                  </h3>
-                  <p className="text-slate-400 text-sm">
-                    Je vous répondrai dans les plus brefs délais.
-                  </p>
-                </div>
-                <button
-                  onClick={() => setStatus('idle')}
-                  className="mt-2 px-4 py-2 text-sm text-emerald-400 border border-emerald-500/30 rounded-lg hover:bg-emerald-500/10 transition-colors"
+    <footer id="contact" className="bg-night text-paper">
+      <div className="page py-20 sm:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div>
+          <p className="inline-flex items-center gap-2 text-sm font-semibold text-route bg-route/15 rounded-full px-3 py-1.5 mb-6">
+            <span className="w-2 h-2 rounded-full bg-route" aria-hidden="true" />
+            Disponible juillet – août 2027
+          </p>
+          <h2 className="h2 !text-paper mb-4">Travaillons ensemble</h2>
+          <p className="text-[17px] leading-relaxed text-sea mb-8 max-w-[52ch]">
+            Je cherche un stage en cloud, DevOps ou administration réseau d’entreprise en Côte d’Ivoire. Le plus
+            rapide pour me joindre : WhatsApp ou e-mail.
+          </p>
+          <ul className="space-y-3">
+            {CHANNELS.map(({ Icon, label, value, href, main }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-4 p-4 rounded-xl border transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30 ${
+                    main ? 'bg-route border-route hover:bg-route-dark' : 'border-paper/15 hover:border-paper/40'
+                  }`}
                 >
-                  Envoyer un autre message
-                </button>
+                  <Icon size={22} className="shrink-0" />
+                  <span className="min-w-0">
+                    <span className={`block text-sm ${main ? 'text-white/80' : 'text-sea'}`}>{label}</span>
+                    <span className="block font-semibold break-all">{value}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          {status === 'success' ? (
+            <div className="h-full min-h-[320px] flex flex-col items-center justify-center text-center p-8 rounded-2xl border border-paper/15 gap-4">
+              <CheckCircle size={48} className="text-route" />
+              <h3 className="text-[22px] font-extrabold">Message envoyé</h3>
+              <p className="text-sea">Je vous réponds au plus vite.</p>
+              <button type="button" onClick={() => setStatus('idle')} className="btn border-2 border-paper/40 hover:bg-paper hover:text-night">
+                Envoyer un autre message
+              </button>
+            </div>
+          ) : (
+            <form ref={form} onSubmit={handleSubmit} className="rounded-2xl border border-paper/15 bg-night-soft/60 p-6 sm:p-8 space-y-4">
+              <h3 className="text-[20px] font-extrabold mb-1">Écrire un message</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="f-name" className="block text-sm text-sea mb-1.5">Nom complet</label>
+                  <input id="f-name" type="text" name="from_name" required autoComplete="name" className={INPUT} />
+                </div>
+                <div>
+                  <label htmlFor="f-mail" className="block text-sm text-sea mb-1.5">E-mail</label>
+                  <input id="f-mail" type="email" name="from_email" required autoComplete="email" className={INPUT} />
+                </div>
               </div>
-            ) : (
-              <form
-                ref={form}
-                onSubmit={handleSubmit}
-                className="bg-card border border-slate-700/40 rounded-2xl p-6 space-y-4"
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs text-slate-400 mb-1.5">
-                      Nom complet
-                    </label>
-                    <input
-                      type="text"
-                      name="from_name"
-                      required
-                      placeholder="Votre nom"
-                      className={INPUT}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs text-slate-400 mb-1.5">Email</label>
-                    <input
-                      type="email"
-                      name="from_email"
-                      required
-                      placeholder="votre@email.com"
-                      className={INPUT}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs text-slate-400 mb-1.5">Sujet</label>
-                  <input
-                    type="text"
-                    name="subject"
-                    required
-                    placeholder="Objet de votre message"
-                    className={INPUT}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs text-slate-400 mb-1.5">Message</label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={5}
-                    placeholder="Votre message..."
-                    className={`${INPUT} resize-none`}
-                  />
-                </div>
-
-                {status === 'error' && (
-                  <div className="flex items-center gap-2 text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
-                    <XCircle size={16} className="flex-shrink-0" />
-                    Erreur d&apos;envoi. Écrivez-moi directement à thekardiak@gmail.com
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === 'loading'}
-                  className="w-full flex items-center justify-center gap-2 py-3 bg-primary text-navy-900 font-semibold rounded-lg hover:bg-cyan-400 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
-                >
-                  {status === 'loading' ? (
-                    <>
-                      <Loader size={18} className="animate-spin" /> Envoi en cours...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={18} /> Envoyer le message
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
+              <div>
+                <label htmlFor="f-subject" className="block text-sm text-sea mb-1.5">Sujet</label>
+                <input id="f-subject" type="text" name="subject" required placeholder="Proposition de stage, question…" className={INPUT} />
+              </div>
+              <div>
+                <label htmlFor="f-msg" className="block text-sm text-sea mb-1.5">Message</label>
+                <textarea id="f-msg" name="message" required rows={5} className={`${INPUT} resize-none`} />
+              </div>
+              {status === 'error' && (
+                <p className="flex items-center gap-2 text-sm text-paper bg-route/20 border border-route/40 rounded-lg px-4 py-3">
+                  <XCircle size={16} className="shrink-0" />
+                  Le message n’est pas parti. Écrivez-moi directement à thekardiak@gmail.com.
+                </p>
+              )}
+              <button type="submit" disabled={status === 'loading'} className="btn-route w-full disabled:opacity-60 disabled:cursor-not-allowed">
+                {status === 'loading' ? (<><Loader size={18} className="animate-spin" /> Envoi…</>) : (<><Send size={18} /> Envoyer</>)}
+              </button>
+            </form>
+          )}
         </div>
       </div>
-    </section>
+
+      <div className="border-t border-paper/10">
+        <div className="page py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Logo light />
+          <ul className="flex items-center gap-5 text-[15px] font-semibold">
+            {SOCIALS.map(({ label, href }) => (
+              <li key={label}>
+                <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sea hover:text-paper">
+                  {label === 'GitHub' && <GithubIcon size={16} />}
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="text-sm text-paper/50">© {new Date().getFullYear()} Karim Diakité</p>
+        </div>
+      </div>
+    </footer>
   )
 }

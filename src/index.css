@@ -2,29 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+/* Le point médian d’Overpass est mal centré : on le prend dans une police système. */
+@font-face {
+  font-family: "MidDot";
+  src: local("Arial"), local("Helvetica"), local("Roboto"), local("DejaVu Sans"), local("Liberation Sans");
+  unicode-range: U+00B7;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #050d1a;
-}
-::-webkit-scrollbar-thumb {
-  background: #00d4ff;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: #fbfbf2; color: #13242e; -webkit-font-smoothing: antialiased; }
+#root { min-height: 100vh; }
+::selection { background: #d6127e; color: #fff; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f3f1e2; }
+::-webkit-scrollbar-thumb { background: #a8551b; border-radius: 4px; }
+
+@layer components {
+  .page { @apply mx-auto w-full max-w-page px-4 sm:px-6 lg:px-8; }
+  .btn { @apply inline-flex items-center justify-center gap-2 min-h-[44px] px-5 rounded-lg font-semibold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30; }
+  .btn-route { @apply btn bg-route text-white hover:bg-route-dark; }
+  .btn-line { @apply btn border-2 border-ink text-ink hover:bg-ink hover:text-paper; }
+  .tag { @apply inline-flex items-center px-2 py-0.5 rounded border border-contour/30 text-contour text-xs font-mono; }
+  .h2 { @apply text-[34px] sm:text-[44px] leading-[1.05] font-extrabold text-ink; text-wrap: balance; }
 }
 
-body {
-  margin: 0;
-  background-color: #050d1a;
-}
-
-#root {
-  min-height: 100vh;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .packet { display: none; }
 }
