@@ -11,7 +11,7 @@ import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import ScrollProgress from './components/ScrollProgress'
 
-const SECTIONS = ['accueil', 'apropos', 'competences', 'formation', 'certifications', 'projets', 'contact']
+const SECTIONS = ['accueil', 'apropos', 'projets', 'competences', 'certifications', 'formation', 'contact']
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('accueil')
@@ -41,10 +41,10 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <Skills />
-        <Education />
-        <Certifications />
         <Projects />
+        <Skills />
+        <Certifications />
+        <Education />
         <Contact />
       </main>
       <Footer />

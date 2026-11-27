@@ -33,8 +33,8 @@ function TimelineItem({ degree, school, period, badge, description, index, isLas
             {period}
           </span>
         </div>
-        <p className="text-sm text-slate-400 mb-2">{school}</p>
-        <p className="text-sm text-slate-500 leading-relaxed">{description}</p>
+        <p className="text-sm text-slate-300 mb-2">{school}</p>
+        <p className="text-sm text-slate-400 leading-relaxed">{description}</p>
       </div>
     </div>
   )

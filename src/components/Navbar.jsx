@@ -5,10 +5,10 @@ import DKTLogo from './DKTLogo'
 const LINKS = [
   { href: '#accueil', label: 'Accueil' },
   { href: '#apropos', label: 'À propos' },
-  { href: '#competences', label: 'Compétences' },
-  { href: '#formation', label: 'Formation' },
-  { href: '#certifications', label: 'Certifications' },
   { href: '#projets', label: 'Projets' },
+  { href: '#competences', label: 'Compétences' },
+  { href: '#certifications', label: 'Certifications' },
+  { href: '#formation', label: 'Formation' },
   { href: '#contact', label: 'Contact' },
 ]
 

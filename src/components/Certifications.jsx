@@ -35,7 +35,7 @@ function CertCard({ name, org, status, period, description, index }) {
         <p className="text-sm text-slate-400 mb-2">
           {org} <span className="font-mono text-slate-500">· {period}</span>
         </p>
-        <p className="text-sm text-slate-500 leading-relaxed">{description}</p>
+        <p className="text-sm text-slate-400 leading-relaxed">{description}</p>
       </div>
     </div>
   )
@@ -43,7 +43,7 @@ function CertCard({ name, org, status, period, description, index }) {
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-24">
+    <section id="certifications" className="py-24 bg-navy-900">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <SectionTitle title="Certifications" subtitle="Ce que je prépare en parallèle du Master" />
         <div className="grid gap-4 mt-2">

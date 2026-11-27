@@ -1,91 +1,52 @@
-import { SiC, SiCplusplus, SiPython, SiHtml5, SiJavascript, SiPhp, SiMysql, SiDocker, SiIntellijidea, SiGit, SiGithub, SiLinux, SiPostman, SiSpringboot, SiReact, SiVite, SiHibernate, SiWireshark } from 'react-icons/si'
-import { FaJava, FaCss3Alt, FaWindows } from 'react-icons/fa'
-import { DiVisualstudio } from 'react-icons/di'
-import { Cpu, Network, Layers, Table, Code2, Share2, GitBranch, Router, Server, Globe, RefreshCw, ShieldCheck } from 'lucide-react'
+import { SiPython, SiCplusplus, SiMysql, SiDocker, SiGit, SiGithub, SiLinux, SiSpringboot, SiReact, SiWireshark, SiVirtualbox, SiCloudflare, SiSupabase } from 'react-icons/si'
+import { FaJava, FaWindows } from 'react-icons/fa'
+import { Network, Router, Server, Globe, RefreshCw, ShieldCheck, Cloud, Code2, Ticket, Landmark } from 'lucide-react'
 
 export const skills = [
   {
-    category: 'Réseaux & Systèmes',
-    icon: '🔌',
+    category: 'Réseaux & systèmes',
+    Icon: Network,
     items: [
-      { name: 'Linux',          Icon: SiLinux,      color: '#FCC624' },
-      { name: 'Windows',        Icon: FaWindows,    color: '#0078D4' },
-      { name: 'TCP/IP',         Icon: Network,      color: '#94a3b8' },
-      { name: 'OSI',            Icon: GitBranch,    color: '#94a3b8' },
-      { name: 'Wireshark',      Icon: SiWireshark,  color: '#1679A7' },
-      { name: 'Packet Tracer',  Icon: Router,       color: '#1BA0D7' },
+      { name: 'Linux',         Icon: SiLinux,     color: '#FCC624' },
+      { name: 'Windows',       Icon: FaWindows,   color: '#0078D4' },
+      { name: 'TCP/IP',        Icon: Network,     color: '#94a3b8' },
+      { name: 'Routage & NAT', Icon: Router,      color: '#1BA0D7' },
+      { name: 'Wireshark',     Icon: SiWireshark, color: '#1679A7' },
+      { name: 'Packet Tracer', Icon: Router,      color: '#049fd9' },
     ],
   },
   {
     category: 'Services réseau',
-    icon: '📡',
+    Icon: Server,
     items: [
-      { name: 'DHCP + relais',  Icon: Server,      color: '#22c55e' },
-      { name: 'DNS BIND9',      Icon: Globe,       color: '#38bdf8' },
-      { name: 'DDNS',           Icon: RefreshCw,   color: '#a78bfa' },
-      { name: 'DNSSEC',         Icon: ShieldCheck, color: '#f59e0b' },
+      { name: 'DHCP + relais', Icon: Server,      color: '#22c55e' },
+      { name: 'DNS BIND9',     Icon: Globe,       color: '#38bdf8' },
+      { name: 'DDNS',          Icon: RefreshCw,   color: '#a78bfa' },
+      { name: 'DNSSEC',        Icon: ShieldCheck, color: '#f59e0b' },
     ],
   },
   {
-    category: 'Langages',
-    icon: '💻',
+    category: 'Cloud & DevOps',
+    Icon: Cloud,
     items: [
-      { name: 'C',          Icon: SiC,          color: '#A8B9CC' },
-      { name: 'C++',        Icon: SiCplusplus,  color: '#00599C' },
-      { name: 'Java',       Icon: FaJava,        color: '#f89820' },
-      { name: 'Python',     Icon: SiPython,      color: '#3776AB' },
-      { name: 'Assembleur', Icon: Cpu,           color: '#94a3b8' },
+      { name: 'Docker',            Icon: SiDocker,     color: '#2496ED' },
+      { name: 'VirtualBox',        Icon: SiVirtualbox, color: '#2F61B4' },
+      { name: 'Cloudflare Tunnel', Icon: SiCloudflare, color: '#F38020' },
+      { name: 'Supabase',          Icon: SiSupabase,   color: '#3ECF8E' },
+      { name: 'Git',               Icon: SiGit,        color: '#F05032' },
+      { name: 'GitHub',            Icon: SiGithub,     color: '#f0f6fc' },
     ],
   },
   {
-    category: 'Développement web',
-    icon: '🌐',
+    category: 'Développement',
+    Icon: Code2,
     items: [
-      { name: 'HTML5',      Icon: SiHtml5,      color: '#E34F26' },
-      { name: 'CSS3',       Icon: FaCss3Alt,    color: '#1572B6' },
-      { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
-      { name: 'PHP',        Icon: SiPhp,        color: '#777BB4' },
-    ],
-  },
-  {
-    category: 'Bases de données',
-    icon: '🗄️',
-    items: [
-      { name: 'MySQL',       Icon: SiMysql, color: '#4479A1' },
-      { name: 'SQL',         Icon: Table,   color: '#94a3b8' },
-      { name: 'Transactions', Icon: Layers, color: '#94a3b8' },
-      { name: 'Modélisation', Icon: Share2, color: '#94a3b8' },
-    ],
-  },
-  {
-    category: 'Outils & DevOps',
-    icon: '🛠️',
-    items: [
-      { name: 'Git',      Icon: SiGit,          color: '#F05032' },
-      { name: 'GitHub',   Icon: SiGithub,       color: '#f0f6fc' },
-      { name: 'VS Code',  Icon: DiVisualstudio, color: '#007ACC' },
-      { name: 'IntelliJ', Icon: SiIntellijidea, color: '#FE315D' },
-      { name: 'Docker',   Icon: SiDocker,       color: '#2496ED' },
-      { name: 'Postman',  Icon: SiPostman,      color: '#FF6C37' },
-    ],
-  },
-  {
-    category: 'Frameworks',
-    icon: '⚡',
-    items: [
+      { name: 'Java',        Icon: FaJava,       color: '#f89820' },
       { name: 'Spring Boot', Icon: SiSpringboot, color: '#6DB33F' },
       { name: 'React',       Icon: SiReact,      color: '#61DAFB' },
-      { name: 'Vite',        Icon: SiVite,       color: '#646CFF' },
-      { name: 'Hibernate',   Icon: SiHibernate,  color: '#59666C' },
-    ],
-  },
-  {
-    category: 'Conception',
-    icon: '📐',
-    items: [
-      { name: 'PlantUML',       Icon: Code2,    color: '#00d4ff' },
-      { name: 'Ent. Architect', Icon: Share2,   color: '#00A9E0' },
-      { name: 'UML',            Icon: GitBranch,color: '#8b5cf6' },
+      { name: 'Python',      Icon: SiPython,     color: '#3776AB' },
+      { name: 'C / C++',     Icon: SiCplusplus,  color: '#00599C' },
+      { name: 'MySQL',       Icon: SiMysql,      color: '#4479A1' },
     ],
   },
 ]
@@ -162,7 +123,8 @@ export const projects = [
     github: 'https://github.com/karim-dkt/labs-dns-dhcp-dnssec',
     demo: null,
     video: null,
-    image: '/lab-dns.png',
+    image: '/lab-dns.svg',
+    imageFit: 'contain',
     highlights: [
       'DHCP : deux étendues, réservation par adresse MAC, agent de relais entre deux réseaux',
       'DNS BIND9 : zones directe et inverse, réplication maître/esclave (NOTIFY, AXFR/IXFR)',
@@ -229,7 +191,8 @@ export const projects = [
     github: 'https://github.com/karim-dkt/United-Kingdom-Web-Project',
     demo: null,
     video: 'https://player.vimeo.com/video/1153191281',
-    image: '/web.jpg',
+    TileIcon: Landmark,
+    logoGlow: '#2563eb',
     highlights: [
       'Module actualités avec affichage dynamique depuis la base de données',
       'Newsletter avec notifications e-mail automatiques via PHPMailer',
@@ -249,7 +212,8 @@ export const projects = [
     github: 'https://github.com/karim-dkt/EventHub',
     demo: null,
     video: null,
-    image: '/database.jpg',
+    TileIcon: Ticket,
+    logoGlow: '#10b981',
     highlights: [
       'Gestion des transactions ACID pour éviter les doubles réservations',
       'Modélisation entité-association complète',

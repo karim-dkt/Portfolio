@@ -8,7 +8,7 @@ export function useTyping(words, typingDelay = 100, erasingDelay = 50, pauseDela
     let timer
 
     function tick() {
-      const { wordIdx, charIdx, deleting } = s.current
+      const { wordIdx, deleting } = s.current
       const word = words[wordIdx]
 
       if (!deleting) {

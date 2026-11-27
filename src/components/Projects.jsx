@@ -29,7 +29,17 @@ function ProjectCard({ project, onClick, index }) {
     >
       {/* Image ou Logo */}
       <div className="relative h-48 overflow-hidden">
-        {project.logo ? (
+        {project.TileIcon ? (
+          <div className="w-full h-full flex items-center justify-center bg-navy-800 relative">
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{ background: `radial-gradient(circle at center, ${project.logoGlow || '#00d4ff'} 0%, transparent 70%)` }}
+            />
+            <div className="relative z-10 p-6 rounded-3xl bg-navy-900/80 border border-slate-700/60 shadow-2xl group-hover:scale-110 transition-transform duration-500">
+              <project.TileIcon size={56} style={{ color: project.logoGlow || '#00d4ff' }} strokeWidth={1.5} />
+            </div>
+          </div>
+        ) : project.logo ? (
           <div className="w-full h-full flex items-center justify-center bg-navy-800 relative">
             <div
               className="absolute inset-0 opacity-20"
@@ -45,7 +55,7 @@ function ProjectCard({ project, onClick, index }) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className={`w-full h-full bg-navy-800 ${project.imageFit === 'contain' ? 'object-contain p-2' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent pointer-events-none" />
@@ -166,6 +176,14 @@ function ProjectModal({ project, onClose }) {
               title={project.title}
             />
           </div>
+        ) : project.TileIcon ? (
+          <div className="h-52 flex items-center justify-center rounded-t-2xl bg-navy-900 relative overflow-hidden">
+            <div
+              className="absolute inset-0 opacity-25"
+              style={{ background: `radial-gradient(circle at center, ${project.logoGlow || '#00d4ff'} 0%, transparent 65%)` }}
+            />
+            <project.TileIcon size={72} style={{ color: project.logoGlow || '#00d4ff' }} strokeWidth={1.5} className="relative z-10" />
+          </div>
         ) : project.logo ? (
           <div className="h-52 flex items-center justify-center rounded-t-2xl bg-navy-900 relative overflow-hidden">
             <div
@@ -182,7 +200,7 @@ function ProjectModal({ project, onClose }) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-52 object-cover rounded-t-2xl"
+            className={`w-full h-52 rounded-t-2xl bg-navy-800 ${project.imageFit === 'contain' ? 'object-contain p-3' : 'object-cover'}`}
           />
         )}
 

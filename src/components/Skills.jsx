@@ -2,7 +2,7 @@ import { useInView } from '../hooks/useInView'
 import SectionTitle from './SectionTitle'
 import { skills } from '../data'
 
-function SkillCard({ category, icon, items, index }) {
+function SkillCard({ category, Icon: CatIcon, items, index }) {
   const [ref, inView] = useInView()
 
   return (
@@ -14,7 +14,7 @@ function SkillCard({ category, icon, items, index }) {
       }`}
     >
       <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-700/40">
-        <span className="text-lg">{icon}</span>
+        <span className="p-1.5 rounded-lg bg-primary/10"><CatIcon size={18} className="text-primary" /></span>
         <h3 className="font-semibold text-white text-sm">{category}</h3>
       </div>
 
@@ -29,7 +29,7 @@ function SkillCard({ category, icon, items, index }) {
               style={{ color }}
               className="group-hover:scale-110 transition-transform"
             />
-            <span className="text-[10px] text-slate-400 text-center leading-tight group-hover:text-slate-300 transition-colors">
+            <span className="text-xs text-slate-300 text-center leading-tight group-hover:text-slate-300 transition-colors">
               {name}
             </span>
           </div>
@@ -41,13 +41,13 @@ function SkillCard({ category, icon, items, index }) {
 
 export default function Skills() {
   return (
-    <section id="competences" className="py-24 bg-navy-900">
+    <section id="competences" className="py-24 bg-navy-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionTitle
           title="Compétences"
-          subtitle="Technologies et outils acquis au cours de mes études et projets"
+          subtitle="Ce que j'ai mis en pratique dans mes labs et mes projets"
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
           {skills.map((skill, i) => (
             <SkillCard key={skill.category} {...skill} index={i} />
           ))}

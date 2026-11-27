@@ -1,21 +1,15 @@
+import { MapPin, Target, GraduationCap, Home, Mail } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 import SectionTitle from './SectionTitle'
 
-const INTERESTS = [
-  { icon: '♟️', label: 'Échecs' },
-  { icon: '✍️', label: 'Écriture' },
-  { icon: '📚', label: 'Lecture' },
-  { icon: '🌍', label: 'Cultures' },
-  { icon: '🔐', label: 'Cybersécurité' },
-  { icon: '💡', label: 'Innovation' },
-]
+const INTERESTS = ['Échecs', 'Écriture', 'Lecture', 'Cultures', 'Cybersécurité', 'Innovation']
 
 const INFO_CHIPS = [
-  { icon: '📍', text: 'Fès, Maroc' },
-  { icon: '🎯', text: "Stage : juillet – août 2027, Côte d'Ivoire" },
-  { icon: '🎓', text: 'FST Fès — Master Cloud & IoT' },
-  { icon: '🇨🇮', text: 'Origine : Korhogo' },
-  { icon: '📧', text: 'thekardiak@gmail.com' },
+  { Icon: MapPin, text: 'Fès, Maroc' },
+  { Icon: Target, text: "Stage : juillet – août 2027, Côte d'Ivoire" },
+  { Icon: GraduationCap, text: 'FST Fès — Master Cloud & IoT' },
+  { Icon: Home, text: "Originaire de Korhogo, Côte d'Ivoire" },
+  { Icon: Mail, text: 'thekardiak@gmail.com' },
 ]
 
 const LANGUAGES = [
@@ -53,8 +47,8 @@ export default function About() {
           <div className="space-y-5 text-slate-400 leading-relaxed">
             <p>
               Je me nomme{' '}
-              <span className="text-white font-medium">Diakité Karim</span>, né le 1er mars
-              2006 à Korhogo, en Côte d&apos;Ivoire. Inscrit en Master{' '}
+              <span className="text-white font-medium">Karim Diakité</span>, originaire de
+              Korhogo en Côte d&apos;Ivoire. Inscrit en Master{' '}
               <span className="text-primary font-medium">Cloud & Internet des Objets</span> à
               la FST Fès, je construis des projets concrets qui reflètent mes compétences
               autant que mes ambitions.
@@ -74,12 +68,12 @@ export default function About() {
             </p>
 
             <div className="flex flex-wrap gap-2.5 pt-2">
-              {INFO_CHIPS.map(({ icon, text }) => (
+              {INFO_CHIPS.map(({ Icon, text }) => (
                 <span
                   key={text}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-card border border-slate-700/60 rounded-full text-sm text-slate-300"
                 >
-                  {icon} {text}
+                  <Icon size={14} className="text-primary shrink-0" /> {text}
                 </span>
               ))}
             </div>
@@ -117,24 +111,10 @@ export default function About() {
 
             {/* Interests */}
             <div>
-              <h3 className="text-base font-semibold text-white mb-5">
+              <h3 className="text-base font-semibold text-white mb-3">
                 Centres d&apos;intérêt
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {INTERESTS.map(({ icon, label }) => (
-                  <div
-                    key={label}
-                    className="flex flex-col items-center justify-center gap-2 p-5 bg-card border border-slate-700/40 rounded-xl hover:border-primary/30 hover:bg-primary/5 transition-all cursor-default group"
-                  >
-                    <span className="text-3xl group-hover:scale-110 transition-transform">
-                      {icon}
-                    </span>
-                    <span className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
-                      {label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <p className="text-sm text-slate-400">{INTERESTS.join(' · ')}</p>
             </div>
           </div>
         </div>

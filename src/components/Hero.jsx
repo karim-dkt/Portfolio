@@ -41,15 +41,25 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
-        {/* Dot grid */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'radial-gradient(rgba(0,212,255,0.8) 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
-          }}
-        />
+        {/* Network pattern */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.07]" aria-hidden="true">
+          <defs>
+            <pattern id="hero-net" width="220" height="220" patternUnits="userSpaceOnUse">
+              <g stroke="#00d4ff" strokeWidth="1" fill="none">
+                <path d="M30 40 L120 80 L200 30 M120 80 L95 170 L205 160 M30 40 L20 140 L95 170 M120 80 L205 160" />
+              </g>
+              <g fill="#00d4ff">
+                <circle cx="30" cy="40" r="3.5" />
+                <circle cx="120" cy="80" r="5" />
+                <circle cx="200" cy="30" r="3" />
+                <circle cx="95" cy="170" r="4" />
+                <circle cx="205" cy="160" r="3" />
+                <circle cx="20" cy="140" r="3" />
+              </g>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-net)" />
+        </svg>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full py-12">
