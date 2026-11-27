@@ -153,6 +153,27 @@ export const projects = [
     ],
   },
   {
+    id: 6,
+    title: 'Lab DHCP, DNS & DNSSEC',
+    type: 'Projet académique — Lab réseau & sécurité',
+    year: '2026',
+    badge: 'Sécurité',
+    description:
+      "Réseau d'entreprise sur VM Ubuntu Server : DHCP derrière un agent de relais, DNS BIND9 maître/esclave, signature de la zone avec DNSSEC, puis un test d'attaque où une réponse DNS falsifiée est rejetée par le résolveur validant.",
+    tech: ['Linux', 'BIND9', 'DNSSEC', 'ISC DHCP', 'Netplan', 'VirtualBox'],
+    github: 'https://github.com/karim-dkt/labs-dns-dhcp-dnssec',
+    demo: null,
+    video: null,
+    image: '/lab-dns.png',
+    highlights: [
+      'DHCP : deux étendues, réservation par adresse MAC, agent de relais entre deux réseaux',
+      'DNS BIND9 : zones directe et inverse, réplication maître/esclave (NOTIFY, AXFR/IXFR)',
+      "Continuité du service : ns2 répond toujours quand ns1 est arrêté",
+      'DNSSEC : politique de signature sur mesure (KSK/ZSK RSASHA256), validation avec ancre de confiance',
+      'Test d\'attaque : un faux serveur renvoie une adresse falsifiée, le résolveur la rejette (SERVFAIL)',
+    ],
+  },
+  {
     id: 3,
     title: 'Wari',
     type: 'Projet personnel',

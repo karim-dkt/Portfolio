@@ -11,7 +11,7 @@ const ROLES = [
 ]
 
 const STATS = [
-  { target: 5,  suffix: '',  label: 'Projets'     },
+  { target: 6,  suffix: '',  label: 'Projets'     },
   { target: 4,  suffix: '',  label: 'Formations'   },
   { target: 20, suffix: '+', label: 'Technologies' },
 ]
