@@ -1,7 +1,7 @@
 import { SiC, SiCplusplus, SiPython, SiHtml5, SiJavascript, SiPhp, SiMysql, SiDocker, SiIntellijidea, SiGit, SiGithub, SiXampp, SiLinux, SiPostman, SiSpringboot, SiReact, SiVite, SiHibernate, SiEclipseide, SiWireshark } from 'react-icons/si'
 import { FaJava, FaCss3Alt, FaWindows } from 'react-icons/fa'
 import { DiVisualstudio } from 'react-icons/di'
-import { Cpu, Network, Layers, Table, Code2, Share2, GitBranch, Router } from 'lucide-react'
+import { Cpu, Network, Layers, Table, Code2, Share2, GitBranch, Router, Server, Globe, RefreshCw, ShieldCheck } from 'lucide-react'
 
 export const skills = [
   {
@@ -45,6 +45,16 @@ export const skills = [
       { name: 'OSI',            Icon: GitBranch,    color: '#94a3b8' },
       { name: 'Wireshark',      Icon: SiWireshark,  color: '#1679A7' },
       { name: 'Packet Tracer',  Icon: Router,       color: '#1BA0D7' },
+    ],
+  },
+  {
+    category: 'Services réseau',
+    icon: '📡',
+    items: [
+      { name: 'DHCP + relais',  Icon: Server,      color: '#22c55e' },
+      { name: 'DNS BIND9',      Icon: Globe,       color: '#38bdf8' },
+      { name: 'DDNS',           Icon: RefreshCw,   color: '#a78bfa' },
+      { name: 'DNSSEC',         Icon: ShieldCheck, color: '#f59e0b' },
     ],
   },
   {
@@ -124,8 +134,9 @@ export const projects = [
     description:
       "ERP SaaS multi-entreprises né d'un projet de stage, évolué en plateforme complète. Full-stack Spring Boot + React avec modules RH, comptabilité, gestion clients/fournisseurs, notifications SMS/WhatsApp, mode hors-ligne PWA et exports PDF/Excel.",
     tech: ['Java', 'Spring Boot', 'React', 'MySQL', 'JWT', 'Docker', 'PWA', 'Redis', 'Twilio', 'Cloudflare R2', 'OpenPDF', 'Apache POI'],
-    github: 'https://github.com/karim-dkt/AGSV',
-    demo: null,
+    github: null,
+    privateCode: true,
+    demo: 'https://www.koris-erp.com',
     video: null,
     logo: '/koris-logo.png',
     logoGlow: '#2563EB',

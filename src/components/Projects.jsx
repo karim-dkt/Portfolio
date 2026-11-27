@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ExternalLink, X, Play } from 'lucide-react'
+import { ExternalLink, X, Play, Lock } from 'lucide-react'
 import GithubIcon from './GithubIcon'
 import { useInView } from '../hooks/useInView'
 import SectionTitle from './SectionTitle'
@@ -110,6 +110,11 @@ function ProjectCard({ project, onClick, index }) {
             >
               <GithubIcon size={15} /> Code
             </a>
+          )}
+          {project.privateCode && (
+            <span className="inline-flex items-center gap-1.5 text-sm text-slate-500">
+              <Lock size={14} /> Code privé
+            </span>
           )}
           {project.demo && (
             <a
@@ -238,6 +243,11 @@ function ProjectModal({ project, onClose }) {
               >
                 <GithubIcon size={16} /> Code source
               </a>
+            )}
+            {project.privateCode && (
+              <span className="inline-flex items-center gap-2 px-4 py-2 border border-slate-700/60 text-slate-400 rounded-lg text-sm">
+                <Lock size={16} /> Code source privé
+              </span>
             )}
             {project.demo && (
               <a
