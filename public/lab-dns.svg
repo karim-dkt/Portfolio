@@ -1,44 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="Overpass, system-ui, sans-serif">
   <defs>
-    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5d707a"/></marker>
-    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#d6127e"/></marker>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#729591"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#fb7185"/></marker>
+    <filter id="g"><feGaussianBlur stdDeviation="6"/></filter>
   </defs>
-  <rect width="800" height="420" fill="#e3f2f6"/>
-  <g fill="none" stroke="#a8551b" stroke-opacity=".18">
-    <path d="M0 70C140 40 260 110 400 80S660 30 800 70"/>
-    <path d="M0 360C160 330 300 390 440 350S680 320 800 350"/>
-    <path d="M0 395C180 370 320 410 470 385S700 365 800 385"/>
+  <rect width="800" height="420" fill="#0b1d23"/>
+  <g fill="none" stroke="#2dd4bf">
+    <path d="M0 70C140 40 260 110 400 80S660 30 800 70" stroke-opacity=".12"/>
+    <path d="M0 365C160 335 300 395 440 355S680 325 800 355" stroke-opacity=".12"/>
+    <path d="M0 400C180 375 320 415 470 390S700 370 800 390" stroke-opacity=".2"/>
   </g>
-  <line x1="70" y1="310" x2="730" y2="310" stroke="#13242e" stroke-width="5" stroke-linecap="round"/>
-  <text x="400" y="342" text-anchor="middle" font-size="15" fill="#5d707a">192.168.1.0/24 · informatique.fst</text>
-  <g stroke="#13242e" stroke-width="2.5"><line x1="170" y1="244" x2="170" y2="310"/><line x1="400" y1="244" x2="400" y2="310"/><line x1="630" y1="244" x2="630" y2="310"/></g>
+  <line x1="70" y1="310" x2="730" y2="310" stroke="#2dd4bf" stroke-width="10" stroke-opacity=".25" filter="url(#g)"/>
+  <line x1="70" y1="310" x2="730" y2="310" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+  <text x="400" y="342" text-anchor="middle" font-size="15" font-family="JetBrains Mono, monospace" fill="#729591">192.168.1.0/24 · informatique.fst</text>
+  <g stroke="#2dd4bf" stroke-width="2.5" stroke-opacity=".7"><line x1="170" y1="244" x2="170" y2="310"/><line x1="400" y1="244" x2="400" y2="310"/><line x1="630" y1="244" x2="630" y2="310"/></g>
 
-  <g>
-    <rect x="80" y="144" width="180" height="100" rx="14" fill="#fff" stroke="#13242e" stroke-width="2.5"/>
-    <text x="170" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#13242e">ns1 maître</text>
-    <text x="170" y="212" text-anchor="middle" font-size="16" fill="#5d707a">192.168.1.4</text>
-    <g transform="translate(240 124)">
-      <path d="M0 -2 21 6v15c0 13-9 21-21 25C-12 42-21 34-21 21V6z" fill="#a8551b"/>
-      <path d="M-8 21l6 6 11-12" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <text x="240" y="186" text-anchor="middle" font-size="11" font-weight="800" fill="#a8551b">DNSSEC</text>
+  <rect x="80" y="144" width="180" height="100" rx="14" fill="#0e242b" stroke="#2dd4bf" stroke-width="2.5"/>
+  <text x="170" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#e2f1ef">ns1 maître</text>
+  <text x="170" y="212" text-anchor="middle" font-size="15" font-family="JetBrains Mono, monospace" fill="#729591">192.168.1.4</text>
+  <g transform="translate(240 124)">
+    <path d="M0 -2 21 6v15c0 13-9 21-21 25C-12 42-21 34-21 21V6z" fill="#f2c14e"/>
+    <path d="M-8 21l6 6 11-12" fill="none" stroke="#071318" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <rect x="310" y="144" width="180" height="100" rx="14" fill="#fff" stroke="#13242e" stroke-width="2.5"/>
-  <text x="400" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#13242e">ns2 esclave</text>
-  <text x="400" y="212" text-anchor="middle" font-size="16" fill="#5d707a">192.168.1.5</text>
-  <rect x="540" y="144" width="180" height="100" rx="14" fill="#fff" stroke="#13242e" stroke-width="2.5"/>
-  <text x="630" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#13242e">Client</text>
-  <text x="630" y="212" text-anchor="middle" font-size="16" fill="#5d707a">192.168.1.10</text>
+  <rect x="310" y="144" width="180" height="100" rx="14" fill="#0e242b" stroke="#a3c2be" stroke-opacity=".5" stroke-width="2"/>
+  <text x="400" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#e2f1ef">ns2 esclave</text>
+  <text x="400" y="212" text-anchor="middle" font-size="15" font-family="JetBrains Mono, monospace" fill="#729591">192.168.1.5</text>
+  <rect x="540" y="144" width="180" height="100" rx="14" fill="#0e242b" stroke="#a3c2be" stroke-opacity=".5" stroke-width="2"/>
+  <text x="630" y="184" text-anchor="middle" font-size="23" font-weight="800" fill="#e2f1ef">Client</text>
+  <text x="630" y="212" text-anchor="middle" font-size="15" font-family="JetBrains Mono, monospace" fill="#729591">192.168.1.10</text>
 
-  <line x1="262" y1="184" x2="306" y2="184" stroke="#5d707a" stroke-width="2.5" marker-end="url(#a)"/>
-  <text x="284" y="230" text-anchor="middle" font-size="12" font-weight="600" fill="#5d707a">AXFR</text>
-  <line x1="538" y1="194" x2="494" y2="194" stroke="#5d707a" stroke-width="2.5" marker-end="url(#a)"/>
+  <line x1="262" y1="184" x2="306" y2="184" stroke="#729591" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="284" y="230" text-anchor="middle" font-size="12" font-family="JetBrains Mono, monospace" fill="#729591">AXFR</text>
+  <line x1="538" y1="194" x2="494" y2="194" stroke="#729591" stroke-width="2.5" marker-end="url(#a)"/>
 
-  <rect x="300" y="30" width="200" height="56" rx="12" fill="#fbe3ef" stroke="#d6127e" stroke-width="2" stroke-dasharray="7 5"/>
-  <text x="400" y="55" text-anchor="middle" font-size="17" font-weight="800" fill="#b00e68">Faux serveur</text>
-  <text x="400" y="76" text-anchor="middle" font-size="14" fill="#b00e68">poste1 → 1.2.3.4</text>
-  <line x1="400" y1="88" x2="400" y2="138" stroke="#d6127e" stroke-width="2.5" marker-end="url(#r)"/>
-  <circle cx="436" cy="116" r="14" fill="#d6127e"/>
-  <path d="M431 111l10 10M441 111l-10 10" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-  <text x="458" y="122" font-size="16" font-weight="800" fill="#d6127e">SERVFAIL</text>
+  <rect x="300" y="30" width="200" height="56" rx="12" fill="#2a0f19" stroke="#fb7185" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="400" y="55" text-anchor="middle" font-size="17" font-weight="800" fill="#fda4af">Faux serveur</text>
+  <text x="400" y="76" text-anchor="middle" font-size="13" font-family="JetBrains Mono, monospace" fill="#fb7185">poste1 → 1.2.3.4</text>
+  <line x1="400" y1="88" x2="400" y2="138" stroke="#fb7185" stroke-width="2.5" marker-end="url(#r)"/>
+  <circle cx="436" cy="116" r="14" fill="#fb7185"/>
+  <path d="M431 111l10 10M441 111l-10 10" stroke="#071318" stroke-width="3" stroke-linecap="round"/>
+  <text x="458" y="122" font-size="15" font-weight="800" font-family="JetBrains Mono, monospace" fill="#fb7185">SERVFAIL</text>
 </svg>

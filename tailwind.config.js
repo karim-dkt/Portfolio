@@ -4,18 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#fbfbf2',
-        land: '#f3f1e2',
-        sea: { DEFAULT: '#bfe3ee', deep: '#8fcadb', soft: '#e3f2f6' },
-        ink: { DEFAULT: '#13242e', soft: '#3d5461', mute: '#5d707a' },
-        contour: '#a8551b',
-        route: { DEFAULT: '#d6127e', dark: '#b00e68', soft: '#fbe3ef' },
-        night: { DEFAULT: '#0d1c24', soft: '#16303d' },
-        line: '#e3e1cf',
+        bg: '#071318',
+        surface: '#0b1d23',
+        card: '#0e242b',
+        line: '#173840',
+        deep: '#040d10',
+        fg: { DEFAULT: '#e2f1ef', soft: '#a3c2be', mute: '#729591' },
+        accent: { DEFAULT: '#2dd4bf', dim: '#14b8a6', deep: '#0f766e', ink: '#042f2e' },
+        amber: '#f2c14e',
+        danger: '#fb7185',
       },
       fontFamily: {
         sans: ['MidDot', 'Overpass', 'system-ui', 'sans-serif'],
-        mono: ['"Overpass Mono"', 'ui-monospace', 'monospace'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       maxWidth: { page: '1240px' },
     },

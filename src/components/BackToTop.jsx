@@ -13,7 +13,7 @@ export default function BackToTop() {
     <a
       href="#accueil"
       aria-label="Revenir en haut de la page"
-      className="fixed bottom-5 right-5 z-30 w-11 h-11 rounded-full bg-ink text-paper flex items-center justify-center shadow-lg hover:bg-route focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30"
+      className="fixed bottom-5 right-5 z-30 w-11 h-11 rounded-full bg-card border border-accent/40 text-accent flex items-center justify-center shadow-lg hover:bg-accent hover:text-accent-ink focus:outline-none focus-visible:ring-4 focus-visible:ring-accent/30"
     >
       <ArrowUp size={20} />
     </a>

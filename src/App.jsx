@@ -8,11 +8,13 @@ import About from './components/About'
 import Contact from './components/Contact'
 import BackToTop from './components/BackToTop'
 import ScrollProgress from './components/ScrollProgress'
+import { useRevealAll } from './components/Reveal'
 
 const SECTIONS = ['accueil', 'projets', 'competences', 'parcours', 'apropos', 'contact']
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('accueil')
+  useRevealAll()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,8 +33,8 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-paper text-ink font-sans">
-      <a href="#projets" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 btn-route">
+    <div className="min-h-screen bg-bg text-fg font-sans">
+      <a href="#projets" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 btn-accent">
         Aller aux projets
       </a>
       <ScrollProgress />

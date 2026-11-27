@@ -6,7 +6,7 @@ export const skills = [
   {
     category: 'Réseaux & systèmes',
     Icon: Network,
-    swatch: '#d6127e',
+    swatch: '#2dd4bf',
     proof: 'Lab DHCP, DNS & DNSSEC · projet Packet Tracer en cours',
     items: [
       { name: 'Linux',         Icon: SiLinux,     color: '#FCC624' },
@@ -20,7 +20,7 @@ export const skills = [
   {
     category: 'Services réseau',
     Icon: Server,
-    swatch: '#2b8aa6',
+    swatch: '#38bdf8',
     proof: 'Lab DHCP, DNS & DNSSEC',
     items: [
       { name: 'DHCP + relais', Icon: Server,      color: '#22c55e' },
@@ -32,7 +32,7 @@ export const skills = [
   {
     category: 'Cloud & DevOps',
     Icon: Cloud,
-    swatch: '#a8551b',
+    swatch: '#f2c14e',
     proof: 'Koris ERP (Docker, Cloudflare Tunnel) · Wari (Supabase)',
     items: [
       { name: 'Docker',            Icon: SiDocker,     color: '#2496ED' },
@@ -40,13 +40,13 @@ export const skills = [
       { name: 'Cloudflare Tunnel', Icon: SiCloudflare, color: '#F38020' },
       { name: 'Supabase',          Icon: SiSupabase,   color: '#3ECF8E' },
       { name: 'Git',               Icon: SiGit,        color: '#F05032' },
-      { name: 'GitHub',            Icon: SiGithub,     color: '#13242e' },
+      { name: 'GitHub',            Icon: SiGithub,     color: '#e2f1ef' },
     ],
   },
   {
     category: 'Développement',
     Icon: Code2,
-    swatch: '#13242e',
+    swatch: '#a78bfa',
     proof: 'Koris ERP · Wari · SGCD',
     items: [
       { name: 'Java',        Icon: FaJava,       color: '#f89820' },

@@ -11,5 +11,5 @@ export default function ScrollProgress() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-  return <div className="fixed top-0 left-0 z-50 h-[3px] bg-route" style={{ width: `${p * 100}%` }} aria-hidden="true" />
+  return <div className="fixed top-0 left-0 z-50 h-[3px] bg-accent" style={{ width: `${p * 100}%` }} aria-hidden="true" />
 }

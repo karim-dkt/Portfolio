@@ -23,11 +23,11 @@ export default function Navbar({ activeSection }) {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-40 transition-colors ${
-        scrolled || open ? 'bg-paper/95 backdrop-blur border-b border-line' : 'bg-transparent'
+        scrolled || open ? 'bg-bg/85 backdrop-blur border-b border-line' : 'bg-transparent'
       }`}
     >
       <nav className="page h-16 flex items-center justify-between" aria-label="Navigation principale">
-        <a href="#accueil" className="rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30">
+        <a href="#accueil" className="rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-accent/30">
           <Logo />
         </a>
 
@@ -38,18 +38,18 @@ export default function Navbar({ activeSection }) {
               <li key={href}>
                 <a
                   href={href}
-                  className={`relative px-3 py-2 text-[15px] font-semibold rounded transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30 ${
-                    active ? 'text-route' : 'text-ink-soft hover:text-ink'
+                  className={`relative px-3 py-2 text-[15px] font-semibold rounded transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-accent/30 ${
+                    active ? 'text-accent' : 'text-fg-soft hover:text-fg'
                   }`}
                 >
                   {label}
-                  {active && <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-route rounded" />}
+                  {active && <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-accent rounded" />}
                 </a>
               </li>
             )
           })}
           <li className="ml-3">
-            <a href="#contact" className="btn-route !min-h-[40px] !px-4 text-[15px]">
+            <a href="#contact" className="btn-accent !min-h-[40px] !px-4 text-[15px]">
               Me contacter
             </a>
           </li>
@@ -58,7 +58,7 @@ export default function Navbar({ activeSection }) {
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
-          className="md:hidden p-2.5 -mr-2 rounded text-ink focus:outline-none focus-visible:ring-4 focus-visible:ring-route/30"
+          className="md:hidden p-2.5 -mr-2 rounded text-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-accent/30"
           aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
           aria-expanded={open}
         >
@@ -74,7 +74,7 @@ export default function Navbar({ activeSection }) {
                 href={href}
                 onClick={() => setOpen(false)}
                 className={`block px-3 py-3 rounded-lg font-semibold ${
-                  activeSection === href.slice(1) ? 'bg-route-soft text-route' : 'text-ink hover:bg-land'
+                  activeSection === href.slice(1) ? 'bg-accent/10 text-accent' : 'text-fg hover:bg-surface'
                 }`}
               >
                 {label}
