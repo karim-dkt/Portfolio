@@ -48,23 +48,25 @@ export default function Contact() {
             <div>
               <h3 className="text-xl font-semibold text-white mb-3">Parlons ensemble</h3>
               <p className="text-slate-400 leading-relaxed text-sm">
-                Inscrit en Master Cloud & Internet des Objets à la FST Fès, je reste ouvert
-                aux collaborations sur des projets et à toute discussion autour du développement,
-                du cloud ou de la cybersécurité.
+                Je recherche un stage en cloud, DevOps ou administration réseau
+                d&apos;entreprise pour juillet et août 2027 en Côte d&apos;Ivoire. Le plus
+                rapide pour me joindre : WhatsApp ou e-mail.
               </p>
             </div>
 
             <div className="space-y-3">
               <a
-                href="tel:+2120657145808"
+                href="https://wa.me/212657145808"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-card border border-slate-700/40 rounded-xl hover:border-primary/20 transition-colors group"
               >
                 <div className="p-2.5 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors flex-shrink-0">
                   <Phone size={20} className="text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 mb-0.5">Téléphone / WhatsApp</p>
-                  <p className="text-sm text-white font-medium">(+212) 065-714-5808</p>
+                  <p className="text-xs text-slate-500 mb-0.5">WhatsApp / Téléphone</p>
+                  <p className="text-sm text-white font-medium whitespace-nowrap">+212 6 57 14 58 08</p>
                 </div>
               </a>
 

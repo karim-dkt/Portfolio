@@ -12,6 +12,7 @@ const INTERESTS = [
 
 const INFO_CHIPS = [
   { icon: '📍', text: 'Fès, Maroc' },
+  { icon: '🎯', text: "Stage : juillet – août 2027, Côte d'Ivoire" },
   { icon: '🎓', text: 'FST Fès — Master Cloud & IoT' },
   { icon: '🇨🇮', text: 'Origine : Korhogo' },
   { icon: '📧', text: 'thekardiak@gmail.com' },
@@ -59,15 +60,17 @@ export default function About() {
               autant que mes ambitions.
             </p>
             <p>
-              Le{' '}
-              <span className="text-white font-medium">développement logiciel</span> et la{' '}
-              <span className="text-white font-medium">cybersécurité</span> sont au cœur de
-              mon parcours. J&apos;y associe désormais une appétence croissante pour les
-              architectures cloud et les systèmes embarqués connectés.
+              L&apos;<span className="text-white font-medium">administration réseau</span>, le{' '}
+              <span className="text-white font-medium">cloud</span> et le{' '}
+              <span className="text-white font-medium">DevOps</span> sont au cœur de mon projet
+              professionnel, avec la{' '}
+              <span className="text-white font-medium">sécurité</span> comme fil rouge : je
+              monte mes propres labs et je me forme à la cybersécurité avec Cisco.
             </p>
             <p>
-              Rigoureux et curieux, je conçois des solutions complètes — du backend au
-              déploiement — en visant toujours la fiabilité, la sécurité et la scalabilité.
+              Rigoureux et curieux, je cherche un stage en juillet et août 2027 en Côte
+              d&apos;Ivoire pour apprendre sur le terrain, au contact d&apos;une vraie
+              infrastructure d&apos;entreprise.
             </p>
 
             <div className="flex flex-wrap gap-2.5 pt-2">

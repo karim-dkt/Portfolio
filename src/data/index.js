@@ -1,9 +1,31 @@
-import { SiC, SiCplusplus, SiPython, SiHtml5, SiJavascript, SiPhp, SiMysql, SiDocker, SiIntellijidea, SiGit, SiGithub, SiXampp, SiLinux, SiPostman, SiSpringboot, SiReact, SiVite, SiHibernate, SiEclipseide, SiWireshark } from 'react-icons/si'
+import { SiC, SiCplusplus, SiPython, SiHtml5, SiJavascript, SiPhp, SiMysql, SiDocker, SiIntellijidea, SiGit, SiGithub, SiLinux, SiPostman, SiSpringboot, SiReact, SiVite, SiHibernate, SiWireshark } from 'react-icons/si'
 import { FaJava, FaCss3Alt, FaWindows } from 'react-icons/fa'
 import { DiVisualstudio } from 'react-icons/di'
 import { Cpu, Network, Layers, Table, Code2, Share2, GitBranch, Router, Server, Globe, RefreshCw, ShieldCheck } from 'lucide-react'
 
 export const skills = [
+  {
+    category: 'Réseaux & Systèmes',
+    icon: '🔌',
+    items: [
+      { name: 'Linux',          Icon: SiLinux,      color: '#FCC624' },
+      { name: 'Windows',        Icon: FaWindows,    color: '#0078D4' },
+      { name: 'TCP/IP',         Icon: Network,      color: '#94a3b8' },
+      { name: 'OSI',            Icon: GitBranch,    color: '#94a3b8' },
+      { name: 'Wireshark',      Icon: SiWireshark,  color: '#1679A7' },
+      { name: 'Packet Tracer',  Icon: Router,       color: '#1BA0D7' },
+    ],
+  },
+  {
+    category: 'Services réseau',
+    icon: '📡',
+    items: [
+      { name: 'DHCP + relais',  Icon: Server,      color: '#22c55e' },
+      { name: 'DNS BIND9',      Icon: Globe,       color: '#38bdf8' },
+      { name: 'DDNS',           Icon: RefreshCw,   color: '#a78bfa' },
+      { name: 'DNSSEC',         Icon: ShieldCheck, color: '#f59e0b' },
+    ],
+  },
   {
     category: 'Langages',
     icon: '💻',
@@ -36,38 +58,14 @@ export const skills = [
     ],
   },
   {
-    category: 'Réseaux & Systèmes',
-    icon: '🔌',
-    items: [
-      { name: 'Linux',          Icon: SiLinux,      color: '#FCC624' },
-      { name: 'Windows',        Icon: FaWindows,    color: '#0078D4' },
-      { name: 'TCP/IP',         Icon: Network,      color: '#94a3b8' },
-      { name: 'OSI',            Icon: GitBranch,    color: '#94a3b8' },
-      { name: 'Wireshark',      Icon: SiWireshark,  color: '#1679A7' },
-      { name: 'Packet Tracer',  Icon: Router,       color: '#1BA0D7' },
-    ],
-  },
-  {
-    category: 'Services réseau',
-    icon: '📡',
-    items: [
-      { name: 'DHCP + relais',  Icon: Server,      color: '#22c55e' },
-      { name: 'DNS BIND9',      Icon: Globe,       color: '#38bdf8' },
-      { name: 'DDNS',           Icon: RefreshCw,   color: '#a78bfa' },
-      { name: 'DNSSEC',         Icon: ShieldCheck, color: '#f59e0b' },
-    ],
-  },
-  {
-    category: 'Outils dev',
+    category: 'Outils & DevOps',
     icon: '🛠️',
     items: [
       { name: 'Git',      Icon: SiGit,          color: '#F05032' },
       { name: 'GitHub',   Icon: SiGithub,       color: '#f0f6fc' },
       { name: 'VS Code',  Icon: DiVisualstudio, color: '#007ACC' },
       { name: 'IntelliJ', Icon: SiIntellijidea, color: '#FE315D' },
-      { name: 'Eclipse',  Icon: SiEclipseide,   color: '#2C2255' },
       { name: 'Docker',   Icon: SiDocker,       color: '#2496ED' },
-      { name: 'XAMPP',    Icon: SiXampp,        color: '#FB7A24' },
       { name: 'Postman',  Icon: SiPostman,      color: '#FF6C37' },
     ],
   },
@@ -258,5 +256,24 @@ export const projects = [
       'Requêtes complexes multi-tables (JOIN, sous-requêtes)',
       "Gestion des contraintes d'intégrité référentielle",
     ],
+  },
+]
+
+export const certifications = [
+  {
+    name: 'Cisco CyberOps Associate',
+    org: 'Cisco Networking Academy · Code 212',
+    status: 'En préparation',
+    period: '2027',
+    description:
+      "Surveillance et analyse de la sécurité : sécurité des systèmes Linux et Windows, analyse du trafic et des journaux, détection et réponse aux incidents. Prépare l'examen Cisco 200-201.",
+  },
+  {
+    name: 'AWS Certified Cloud Practitioner',
+    org: 'Amazon Web Services',
+    status: 'Prévue',
+    period: '2028',
+    description:
+      "Fondamentaux du cloud AWS : calcul, stockage, réseau, sécurité et tarification. Prévue en fin de Master.",
   },
 ]

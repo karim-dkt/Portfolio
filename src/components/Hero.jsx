@@ -4,24 +4,24 @@ import { useInView } from '../hooks/useInView'
 import { useCounter } from '../hooks/useCounter'
 
 const ROLES = [
+  'Cloud & DevOps',
+  'Administration réseau',
+  'Sécurité des systèmes',
   'Étudiant en Master Cloud & IoT',
-  'Développeur Web',
-  'Passionné de Cybersécurité',
-  'Problem Solver',
 ]
 
 const STATS = [
-  { target: 6,  suffix: '',  label: 'Projets'     },
-  { target: 4,  suffix: '',  label: 'Formations'   },
-  { target: 20, suffix: '+', label: 'Technologies' },
+  { target: 6, suffix: '', label: 'Projets' },
+  { text: 'Juil. – Août 2027', label: 'Stage recherché' },
+  { text: "Côte d'Ivoire", label: 'Lieu du stage' },
 ]
 
-function StatCounter({ target, suffix, label, inView }) {
+function StatCounter({ target = 0, suffix, text, label, inView }) {
   const count = useCounter(target, 1600, inView)
   return (
     <div>
-      <p className="text-2xl font-bold text-primary tabular-nums">
-        {count}{suffix}
+      <p className="text-2xl font-bold text-primary tabular-nums whitespace-nowrap">
+        {text ?? <>{count}{suffix}</>}
       </p>
       <p className="text-xs text-slate-500 uppercase tracking-wider mt-0.5">{label}</p>
     </div>
@@ -56,6 +56,16 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left — text */}
           <div className="order-2 lg:order-1">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2.5 mb-6 px-4 py-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 text-sm font-medium hover:bg-emerald-400/15 transition-colors"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping motion-reduce:animate-none" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </span>
+              Recherche un stage · Juillet – Août 2027 · Côte d&apos;Ivoire
+            </a>
             <p className="text-primary font-mono text-xs tracking-[0.3em] mb-4 uppercase">
               Bonjour, je suis
             </p>
@@ -74,8 +84,9 @@ export default function Hero() {
             </div>
 
             <p className="text-slate-400 text-lg leading-relaxed mb-8 max-w-lg">
-              Passionné par le développement logiciel et la cybersécurité. Je construis des
-              projets concrets pour transformer mes apprentissages en compétences réelles.
+              Étudiant en Master Cloud &amp; IoT, je cherche un stage en cloud, DevOps ou
+              administration réseau d&apos;entreprise. Je monte mes propres labs (DHCP, DNS,
+              DNSSEC) et je déploie de vrais projets, comme l&apos;ERP SaaS Koris.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -103,7 +114,7 @@ export default function Hero() {
             </div>
 
             {/* Animated stats */}
-            <div ref={statsRef} className="flex gap-8 mt-10 pt-6 border-t border-slate-800">
+            <div ref={statsRef} className="flex flex-wrap gap-x-8 gap-y-4 mt-10 pt-6 border-t border-slate-800">
               {STATS.map((stat) => (
                 <StatCounter key={stat.label} {...stat} inView={statsInView} />
               ))}
@@ -135,7 +146,7 @@ export default function Hero() {
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden xl:flex flex-col items-center gap-1 animate-bounce">
           <span className="text-xs text-slate-600 uppercase tracking-widest">Scroll</span>
           <ChevronDown size={20} className="text-slate-600" />
         </div>
